@@ -3,6 +3,7 @@
 
     import IPerson from '@/components/icons/IPerson.vue'
     import IMail from '@/components/icons/IMail.vue'
+    import Socials from '@/components/Socials.vue';
 </script>
 
 
@@ -13,7 +14,7 @@
             <div class="w-7/12 mx-auto bg-white flex flex-col items-center">
                 <h1 class="text-gray-900 text-3xl font-poppins font-bold mt-20">Preencha os seus dados</h1>
                 <div class="my-11">
-                    Socials
+                    <Socials :color-symbols="'#000000'"/>
                 </div>
                 <form action="" class="flex flex-col items-center h-full">
                     <Field :placeholder="'Nome de utilizador'">

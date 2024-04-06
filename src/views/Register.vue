@@ -1,5 +1,5 @@
 <script setup>
-    import Field from '@/components/auth/Fields.vue'
+    import Field from '@/components/Auth/Fields.vue'
 
     import IPerson from '@/components/icons/IPerson.vue'
     import IMail from '@/components/icons/IMail.vue'

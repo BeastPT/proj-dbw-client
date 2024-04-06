@@ -1,6 +1,6 @@
 <script setup>
-    import Socials from '@/components/Socials.vue';
-    import Field from '@/components/auth/Fields.vue'
+    import Socials from '@/components/Socials.vue'
+    import Field from '@/components/Auth/Fields.vue'
 
     import IPerson from '@/components/icons/IPerson.vue'
 </script>

@@ -4,6 +4,8 @@
     import IPerson from '@/components/icons/IPerson.vue'
     import IMail from '@/components/icons/IMail.vue'
     import Socials from '@/components/Socials.vue';
+
+    import { RouterLink } from 'vue-router';
 </script>
 
 
@@ -43,9 +45,11 @@
 
             <!--  Middle Icon  -->
             <div class="flex z-1 absolute top-1/2 left-[42rem] transform -translate-x-1/2 -translate-y-1/2">
-                <button>
-                    <img class="rounded-full" src="https://via.placeholder.com/80" alt="SkillsWapp Logo" />
-                </button>
+                <RouterLink to="/login">
+                    <button>
+                        <img class="rounded-full" src="https://via.placeholder.com/80" alt="SkillsWapp Logo" />
+                    </button>
+                </RouterLink>
             </div>
 
             <!--  Login  -->

@@ -6,7 +6,7 @@
           <div class="flex flex-col py-8 pl-6 pr-2 w-64 bg-white flex-shrink-0">
             <div class="flex flex-row items-center justify-center h-12 w-full">
               <div
-                class="flex items-center justify-center rounded-2xl text-indigo-700 bg-indigo-100 h-10 w-10"><svg
+                class="flex items-center justify-center rounded-2xl   bg-gray-800 text-white h-10 w-10"><svg
                   class="w-6 h-6"
                   fill="none"
                   stroke="currentColor"
@@ -23,12 +23,12 @@
               <div class="ml-2 font-bold text-2xl">IA Chats</div>
             </div>
             <div
-              class="flex flex-col items-center bg-indigo-100 border border-gray-200 mt-4 w-full py-6 px-4 rounded-lg">
+              class="flex flex-col items-center  bg-gray-100 border border-gray-200 mt-4 w-full py-6 px-4 rounded-lg">
               <div class="h-20 w-20 rounded-full border overflow-hidden image-IA"></div>
               <div class="text-sm font-semibold mt-2">Tradutor de Inglês</div>
               <div class="text-xs text-gray-500">Preço: 0,50€/mil caracteres</div>
               <div class="flex flex-row items-center mt-3">
-                <div class="flex flex-col justify-center h-4 w-8 bg-indigo-500 rounded-full">
+                <div class="flex flex-col justify-center h-4 w-8 bg-green-500 rounded-full">
                   <div class="h-3 w-3 bg-white rounded-full self-end mr-1"></div>
                 </div>
                 <div class="leading-none ml-1 text-xs">Ativo</div>
@@ -81,7 +81,7 @@
                   <div class="grid grid-cols-12 gap-y-2">
                     <div class="col-start-1 col-end-8 p-3 rounded-lg">
                       <div class="flex flex-row items-center">
-                        <div class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">I</div>
+                        <div class="flex items-center justify-center h-10 w-10 rounded-full  bg-gray-800 text-white flex-shrink-0">I</div>
                         <div class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
                           <div>Olá, estou aqui para ajudar!</div>
                         </div>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="col-start-1 col-end-8 p-3 rounded-lg">
                       <div class="flex flex-row items-center">
-                        <div class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">I</div>
+                        <div class="flex items-center justify-center h-10 w-10 rounded-full  bg-gray-800 text-white flex-shrink-0">I</div>
                         <div class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
                           <div>Por favor envie o que pertende traduzir. </div>
                         </div>
@@ -113,7 +113,7 @@
                     </div>
                     <div class="col-start-1 col-end-8 p-3 rounded-lg">
                       <div class="flex flex-row items-center">
-                        <div class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">I</div>
+                        <div class="flex items-center justify-center h-10 w-10 rounded-full  bg-gray-800 text-white flex-shrink-0">I</div>
                         <div class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
                           <div>Olá! Claro, estou aqui para ajudar. Aqui está a tradução do texto para o inglês: We would like to inform you that there will be a company-wide meeting next Friday, April 20th, at 2:00 PM. The meeting will take place in the main auditorium and will address the results of the last quarter, as well as the goals for the upcoming period. We count on everyone's presence to discuss strategies and align our objectives. If you have any questions or suggestions, please send them to us before the meeting.</div>
                         </div>
@@ -130,7 +130,7 @@
                     </div>
                     <div class="col-start-1 col-end-8 p-3 rounded-lg">
                       <div class="flex flex-row items-center">
-                        <div class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">I</div>
+                        <div class="flex items-center justify-center h-10 w-10 rounded-full  bg-gray-800 text-white flex-shrink-0">I</div>
                         <div class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
                           <div> Fico feliz em poder ajudar! Se você tiver mais textos ou frases para traduzir, é só me enviar.</div>
                         </div>

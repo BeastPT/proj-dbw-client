@@ -22,9 +22,9 @@ import Header2 from './components/Header2.vue';
     </nav>
     
     <RouterView /> -->
-    <HeaderBar />
     
-    <FooterBar />
+    <Comunidade />
+    
 </template>
 
 <style scoped>

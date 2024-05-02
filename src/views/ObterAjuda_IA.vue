@@ -1,15 +1,14 @@
 <template >
-<div class="ml-48 mr-48 " style="font-family: Arial, sans-serif;">
-    <h1 class="text-4xl text-center mt-8 font-bold">Obter Ajuda</h1>
-    
-    <h2 class="text-2xl font-semibold mb-2 mt-8">Fale com a nossa assistente virtual</h2>
-    <div class="border-b-4 bg-gray-200 rounded-2xl"></div>
-
-
-    <div class="flex flex-col items-center justify-center min-h-screen text-gray-800 p-10">
+    <div class="mx-4 md:mx-8 lg:mx-48" style="font-family: Arial, sans-serif;">
+        <h1 class="text-3xl md:text-4xl text-center mt-8 font-bold">Obter Ajuda</h1>
         
-        <div class="flex flex-col flex-grow w-full max-w-4xl bg-gray-200 shadow-2xl rounded-lg overflow-hidden">
-            <div class="flex flex-col flex-grow h-0 p-4 overflow-auto">
+        <h2 class="text-xl md:text-2xl font-semibold mb-2 mt-8">Fale com a nossa assistente virtual</h2>
+        <div class="border-b-4 bg-gray-200 rounded-2xl"></div>
+    
+        <div class="flex flex-col items-center justify-center min-h-screen text-gray-800 p-10">
+            
+            <div class="flex flex-col flex-grow w-full max-w-4xl bg-gray-200 shadow-xl rounded-lg overflow-hidden">
+                <div class="flex flex-col flex-grow h-0 p-4 overflow-auto">
                 <div class="flex w-full mt-2 space-x-3 max-w-xs">
                     <div class="flex-shrink-0 h-10 w-10 rounded-full image-IA"></div>
                     <div>
@@ -75,55 +74,33 @@
     </div>
 
 
-    <h2 class="text-2xl font-semibold mb-2 mt-8">Contacta-nos</h2>
+
+    <h2 class="text-xl md:text-2xl font-semibold mb-2 mt-8">Contacta-nos</h2>
     <div class="border-b-4 bg-gray-200 rounded-2xl mb-8"></div>
 
-    <div class="informacoes mb-8 ">
-        <div class="flex justify-center">
-            <div class="flex">
-                <div class="mt-8 flex mx-8"> 
-                    <div class="inf1">
-                        <p class="text-center text-white">E-mail</p>
-                    </div>
-                    <div class="inf2 ml-4">
-                        <p>skillswap@gmail.com</p>
-                    </div>
-                </div>
-                <div class="mt-8 flex mx-8">
-                    <div class="inf1">
-                        <p class="text-center text-white">Telefone</p>
-                    </div>
-                    <div class="inf2 ml-4">
-                        <p>291 718 291</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="flex justify-center">
-            <div class="flex">
-                <div class="mt-8 flex mx-8"> 
-                    <div class="inf1">
-                        <p class="text-center text-white">Telemóvel</p>
-                    </div>
-                    <div class="inf2 ml-4">
-                        <p>+351 924 174 690</p>
-                    </div>
-                </div>
-                <div class="mt-8 flex mx-8">
-                    <div class="inf1">
-                        <p class="text-center text-white">Whatsapp</p>
-                    </div>
-                    <div class="inf2 ml-4">
-                        <p>+351 964 041 246</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="flex flex-wrap justify-center md:justify-start lg:justify-between">
+      <div class="inf mx-auto md:mr-4 lg:mr-0 mb-4 md:mb-0">
+        <p class="text-white">E-mail</p>
+        <p>skillswap@gmail.com</p>
+      </div>
+      <div class="inf mx-auto md:mr-4 lg:mr-0 mb-4 md:mb-0">
+        <p class="text-white">Telefone</p>
+        <p>291 718 291</p>
+      </div>
+      <div class="inf mx-auto md:mr-4 lg:mr-0 mb-4 md:mb-0">
+        <p class="text-white">Telemóvel</p>
+        <p>+351 924 174 690</p>
+      </div>
+      <div class="inf mx-auto">
+        <p class="text-white">Whatsapp</p>
+        <p>+351 964 041 246</p>
+      </div>
     </div>
-
-</div>
     
+</div>
+
 </template>
+
 
 <script>
 
@@ -131,48 +108,35 @@
 
 <style scoped>
 
-.informacoes {
-    width:  100%;
-    height: 200px;
-    border: 3px solid #1B1D2D;
+.inf {
+    width: 200px; /* Definindo uma largura fixa para manter os elementos do mesmo tamanho */
+    height: 100px; /* Ajustando a altura para acomodar o conteúdo */
+    background-color:rgb(209 213 219);
     border-radius: 15px;
-    position: relative;
+    margin-bottom: 10px; /* Adicionando espaçamento inferior */
+    padding: 10px; /* Adicionando espaçamento interno */
+    text-align: center; /* Centralizando o texto */
 }
 
-.inf1 {
-    width:  120px;
-    height: 50px;
-    background-color: #1B1D2D;
-    border-radius: 15px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.inf2 {
-    width:  300px;
-    height: 50px;
-    background-color: rgb(209 213 219);
-    border-radius: 15px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.image-IA {
-    background-image: url('/src/assets/images/IA.jpg'); 
+.inf p {
+    margin: 0; /* Removendo margens padrão dos parágrafos */
+  }
+                                 
+  .image-IA, .image-client {
     background-size: cover;
     background-position: center;
     border: 2px solid #1B1D2D;
-}
+    border-radius: 50%; /* Alterado para um círculo para avatares */
+    width: 40px; /* Definido um tamanho padrão para os avatares */
+    height: 40px;
+  }
 
-.image-client {
+  .image-IA {
+    background-image: url('/src/assets/images/IA.jpg');
+  }
+
+  .image-client {
     background-image: url('/src/assets/images/cliente.jpg');
-    background-size: cover;
-    background-position: center;
-    border: 2px solid #1B1D2D;
-}
+  }
 
 </style>

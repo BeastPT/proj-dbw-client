@@ -4,7 +4,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
-      <div class="max-w-7xl mx-auto py-16">
+      <div class="max-w-7xl mx-auto py-16 px-8">
        
   
         <div class="flex flex-col md:flex-row gap-12">

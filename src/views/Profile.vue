@@ -1,16 +1,20 @@
 <template>
   <div class="mx-auto md:mx-4">
     <!-- #####################  PARTE DE CIMA ####################-->
-    <div class="text-center font-semibold flex justify-center mb-10 text-2xl p-4">
+    <div class="text-center font-semibold mb-10 text-2xl p-4">
       <!-- Botões com texto reduzido em telas menores -->
-      <button class="mr-6 py-2 px-2 md:px-4 text-base md:text-lg">Perfil</button>
-      <button class="mr-6 py-2 px-2 md:px-4 text-base md:text-lg">Histórico de Compra</button>
-      <button class="py-2 px-2 md:px-4 text-base md:text-lg">Favoritos</button>
+      <div class="flex flex-wrap justify-center mx-auto">
+        <button class="mr-6 py-2 px-2 md:px-4 text-base md:text-lg hover:underline">Perfil</button>
+        <button class="mr-6 py-2 px-2 md:px-4 text-base md:text-lg hover:underline">Compras</button>
+        <button class="py-2 px-2 md:px-4 text-base md:text-lg hover:underline">Favoritos</button>
+      </div>
+      
+      
     </div>
 
     <!-- ######################  PERFIL ############################### -->
 
-    <div class="font-semibold flex flex-col md:flex-row justify-between items-center mb-4 rounded-lg">>
+    <div class="font-semibold flex flex-col md:flex-row justify-between items-center mb-4 rounded-lg">
       <div class="flex items-center mb-4 md:mb-0">
         <img src="@/assets/images/image12.png" class="w-16 h-16 rounded-full" alt="Imagem de perfil">
         <div class="ml-4">
@@ -18,11 +22,12 @@
           <p class="text-sm text-gray-500">Membro da SKILLswap desde 2024</p>
         </div>
       </div>
-      <div class="mb-8 md:text-right md:mb-0 md:ml-auto md:mr-4">
+      <div class=" md:text-right md:mb-0 md:ml-auto md:mr-4">
         <button class="bg-gray-900 text-white px-3 py-2 rounded">Alterar foto de perfil</button>
       </div>
       <button class="bg-gray-900 text-white px-3 py-2 rounded hover:bg-gray-800 mt-4 md:mt-0">Sair da Sessão</button>
     </div>
+    
 
     <div class="bg-white p-8 rounded-lg border border-gray-900 mb-8">
       <form class="flex flex-wrap -mx-2">

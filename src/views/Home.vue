@@ -12,19 +12,20 @@
       <h2 class="font-bold text-2xl text-darkgray mb-8">Serviços populares</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 ml-auto mr-auto md:ml-28 md:mr-28 mb-10">
         <div class="group">
-          <img src="@/assets/images/image9.jpg" class="w-60 h-auto mx-auto cursor-pointer transition duration-300 ease-in-out transform group-hover:scale-110 rounded-lg" alt="Imagem 9">
+          <img src="@/assets/images/image9.png" style="width: 200px; height: 250px;" class="mb-5 mx-auto cursor-pointer transition duration-300 ease-in-out transform group-hover:scale-105 rounded-lg" alt="Imagem 9">
         </div>
         <div class="group">
-          <img src="@/assets/images/image9.jpg" class="w-60 h-auto mx-auto cursor-pointer transition duration-300 ease-in-out transform group-hover:scale-110 rounded-lg" alt="Imagem 10">
+          <img src="@/assets/images/image26.png" style="width: 200px; height: 250px;" class="mb-5 mx-auto cursor-pointer transition duration-300 ease-in-out transform group-hover:scale-105 rounded-lg" alt="Imagem 10">
         </div>
         <div class="group">
-          <img src="@/assets/images/image9.jpg" class="w-60 h-auto mx-auto cursor-pointer transition duration-300 ease-in-out transform group-hover:scale-110 rounded-lg" alt="Imagem 11">
+          <img src="@/assets/images/image27.png" style="width: 200px; height: 250px;" class="mb-5 mx-auto cursor-pointer transition duration-300 ease-in-out transform group-hover:scale-105 rounded-lg" alt="Imagem 11">
         </div>
       </div>
     </div>
+    
 
     <!-- ########## TEXTO SOBRE QUAL A MELHOR PARTE DO SITE ########## -->
-    <div class="bg-blue-300 w-full p-2 mb-8 flex flex-col md:flex-row items-center">
+    <div class="bg-blue-300 w-full p-2 mb-8 flex flex-col md:flex-row items-center rounded-lg">
       <div class="w-full md:w-1/2">
         <div class="mx-auto max-w-screen-lg ml-0 md:ml-48 mt-8">
           <h2 class="font-bold text-3xl text-gray-800 mb-4">Qual a melhor parte?</h2>
@@ -49,15 +50,15 @@
       <button class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md">Mercado Financeiro</button>
       <button class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md"> Programação</button>
       <button class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md">Tradução de Línguas</button>
-      <button class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md">Aprendizagem</button>
-      <button class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md">Fitness</button>
-      <button class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md">Escrita</button>
+      <button class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md ">Aprendizagem</button>
+      <button class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md ">Fitness</button>
+      <button class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md ">Escrita</button>
     </div>
 
 
     <!-- ########## TORNA-TE UM FREELANCER ########## -->
     <div>
-      <h1 class="font-bold text-3xl text-center mb-10">Torna-te um Freelancer</h1>
+      <h1 class="font-bold text-3xl text-center p-10">Torna-te um Comprador</h1>
       <div class="border-l-4 border-r-4 border-gray-500 rounded-lg p-6 mb-10">
         <p class="font-bold text-xl mb-4">Desperte seu Potencial: Torne-se um Freelancer de Sucesso!</p>
         <p class="mb-4">No universo do freelancing, as possibilidades são tão vastas quanto sua imaginação. Ao escolher este caminho, você não apenas assume o controle de sua carreira, mas também desencadeia uma jornada de descobertas e realizações. A liberdade de trabalhar de qualquer lugar, a flexibilidade de definir seus próprios horários e a oportunidade de mergulhar em projetos apaixonantes são apenas o começo.</p>

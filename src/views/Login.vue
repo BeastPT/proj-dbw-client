@@ -3,6 +3,8 @@ import Socials from '@/components/Socials.vue'
 import Field from '@/components/Auth/Fields.vue'
 
 import IPerson from '@/components/icons/IPerson.vue'
+
+import { RouterLink } from 'vue-router';
 </script>
 
 <template>
@@ -24,9 +26,11 @@ import IPerson from '@/components/icons/IPerson.vue'
           </div>
   
            <div class="flex flex-col items-center mt-16">
-            <button class="text-white text-2xl font-semibold font-poppins bg-gray-900 rounded-full w-48 h-16 border-white border-2 mt-8">
-              Criar Conta
-            </button>
+            <RouterLink to="/register">
+              <button class="text-white text-2xl font-semibold font-poppins bg-gray-900 rounded-full w-48 h-16 border-white border-2 mt-8">
+                Criar Conta
+              </button>
+            </RouterLink>
           </div>
         </div>
   
@@ -69,9 +73,11 @@ import IPerson from '@/components/icons/IPerson.vue'
             <input type="submit" value="Entrar" class="text-white text-2xl font-semibold font-poppins bg-gray-900 rounded-full w-56 h-16 mb-4">
   
             <div class="flex flex-col items-center mt-auto mb-40 lg:hidden"> 
+              <RouterLink to="/register">
                 <button class="text-white text-2xl font-semibold font-poppins bg-gray-900 rounded-full w-56 h-16  mt-auto">
                 Criar Conta
                 </button>
+              </RouterLink>
             </div>
           </form>
         </div>

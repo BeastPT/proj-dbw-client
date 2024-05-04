@@ -4,6 +4,8 @@ import Field from '@/components/Auth/Fields.vue'
 import IPerson from '@/components/icons/IPerson.vue'
 
 import IMail from '@/components/icons/IMail.vue'
+
+import { RouterLink } from 'vue-router';
 </script>
 
 <template>
@@ -40,9 +42,11 @@ import IMail from '@/components/icons/IMail.vue'
             </div>
             <div class="flex flex-col items-center space-y-4 mt-auto mb-32 lg:flex-row lg:items-center lg:space-x-4 lg:space-y-0">
                 <input type="submit" value="Criar Conta" class="text-white text-2xl font-semibold font-poppins bg-gray-900 rounded-full w-56 h-16">
-                <button class="text-white text-2xl font-semibold font-poppins bg-gray-900 rounded-full w-56 h-16 lg:hidden">
-                Entrar
-                </button>
+                <RouterLink to="/login">
+                    <button class="text-white text-2xl font-semibold font-poppins bg-gray-900 rounded-full w-56 h-16 lg:hidden">
+                        Entrar
+                    </button>
+                </RouterLink>
             </div>
           </form>
         </div>
@@ -70,10 +74,13 @@ import IMail from '@/components/icons/IMail.vue'
             </div>
   
             <div class="relative flex flex-col items-center mt-auto mb-32">
-                <button class="text-white text-2xl font-semibold font-poppins bg-gray-900 rounded-full w-48 h-16 border-white border-2 mt-auto">
-                Entrar
-                </button>
-                <span class="text-sm absolute top-16 pt-2">Já tem conta? Faça o login</span>
+                <RouterLink to="/login">
+                    <button class="text-white text-2xl font-semibold font-poppins bg-gray-900 rounded-full w-48 h-16 border-white border-2 mt-auto">
+                    Entrar
+                    </button>
+                </RouterLink>
+                    <span class="text-sm absolute top-16 pt-2">Já tem conta? Faça o login</span>
+                
             </div>
         </div>
       </div>

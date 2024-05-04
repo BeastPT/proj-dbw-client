@@ -12,7 +12,7 @@
       <h2 class="font-bold text-2xl text-darkgray mb-8">Serviços populares</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 ml-auto mr-auto md:ml-28 md:mr-28 mb-10">
         <div class="group">
-          <img src="@/assets/images/image9.png" style="width: 200px; height: 250px;" class="mb-5 mx-auto cursor-pointer transition duration-300 ease-in-out transform group-hover:scale-105 rounded-lg" alt="Imagem 9">
+          <img src="@/assets/images/image9.jpg" style="width: 200px; height: 250px;" class="mb-5 mx-auto cursor-pointer transition duration-300 ease-in-out transform group-hover:scale-105 rounded-lg" alt="Imagem 9">
         </div>
         <div class="group">
           <img src="@/assets/images/image26.png" style="width: 200px; height: 250px;" class="mb-5 mx-auto cursor-pointer transition duration-300 ease-in-out transform group-hover:scale-105 rounded-lg" alt="Imagem 10">

@@ -5,7 +5,26 @@ import IPerson from '@/components/icons/IPerson.vue'
 
 import IMail from '@/components/icons/IMail.vue'
 
-import { RouterLink } from 'vue-router';
+import { ref } from 'vue';
+
+import { RouterLink, useRouter } from 'vue-router';
+import authStore from '@/store/auth.js';
+
+const email = ref('');
+const username = ref('');
+const password = ref('');
+const router = useRouter()
+
+function register() {
+    const auth = authStore();
+    return auth.register(email.value, username.value, password.value)
+        .then(() => {
+            router.push('/');
+        })
+        .catch((error) => {
+            console.error(error);
+        })
+}
 </script>
 
 <template>
@@ -17,19 +36,19 @@ import { RouterLink } from 'vue-router';
             <div class="my-11">
                 <Socials :color-symbols="'#000000'"/>
             </div>
-            <form action="" class="flex flex-col items-center h-full">
+            <form @submit.prevent="register" class="flex flex-col items-center h-full">
                 <div class="w-full lg:w-[120%]"> 
-                <Field :placeholder="'Nome de utilizador'" class="w-full">
+                <Field :placeholder="'Nome de utilizador'" class="w-full" v-model="username">
                 <template #icon>
                   <IPerson/>
                 </template>
                 </Field>
-                <Field :placeholder="'E-mail'" class="w-full">
+                <Field :placeholder="'E-mail'" class="w-full" v-model="email">
                 <template #icon>
                   <IMail/>
                 </template>
                 </Field>
-                <Field :placeholder="'Senha'" class="w-full">
+                <Field :placeholder="'Senha'" class="w-full" v-model="password">
                 <template #icon>
                 </template>
                 </Field>
@@ -60,7 +79,7 @@ import { RouterLink } from 'vue-router';
 
   
         <!--  Login  -->
-        <div class="hidden lg:flex w-5/12 bg-gray-900 text-white flex flex-col items-center">
+        <div class="hidden lg:flex w-5/12 bg-gray-900 text-white flex-col items-center">
             <div class="ml-auto mt-11 mr-14">
                 <span>SKILLSWAPP Logo</span>
             </div>

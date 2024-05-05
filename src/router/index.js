@@ -17,6 +17,16 @@ const router = createRouter({
           name: 'about',
           component: () => import('../views/AboutUs.vue')
         },
+        {
+          path: 'profile',
+          name: 'profile',
+          component: () => import('../views/Profile.vue')
+        },
+        {
+          path: 'purchase',
+          name: 'purchase',
+          component: () => import('../views/Purchase.vue')
+        }
       ]
     },
     {
@@ -30,6 +40,19 @@ const router = createRouter({
       component: () => import('../views/Login.vue')
     }
   ]
+})
+
+import authStore from '@/store/auth.js'
+const needsAuth = ['profile', 'purchase', 'purchase']
+router.beforeEach((to, from) => {
+  const auth = authStore()
+  if ( (to.name == 'login' || to.name == 'register') && auth.user) {
+    return '/'
+  }
+
+  if (needsAuth.includes(to.name) && !auth.user) {
+    return '/login'
+  }
 })
 
 export default router

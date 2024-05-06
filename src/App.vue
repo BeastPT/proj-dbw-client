@@ -23,7 +23,6 @@ import Header2 from './components/Header2.vue';
     
     <RouterView /> -->
     
-    <Comunidade />
     
 </template>
 

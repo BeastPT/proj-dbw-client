@@ -1,75 +1,25 @@
 <template> 
 
-<div class="mx-48 " style="font-family: Arial, sans-serif;">
+<div class="md:mx-32 sm:mx-4" style="font-family: Arial, sans-serif;">
     <div class="flex h-screen antialiased text-gray-800">
         <div class="flex flex-row h-full w-full overflow-x-hidden">
-          <!--Conversas -->
-          <div class="flex flex-col py-8 pl-6 pr-2 w-64 bg-white flex-shrink-0">
-            <div class="flex flex-row items-center justify-center h-12 w-full">
-              <div
-                class="flex items-center justify-center rounded-2xl   bg-gray-800 text-white h-10 w-10"><svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                  ></path>
-                </svg>
-              </div>
-              <div class="ml-2 font-bold text-2xl">IA Chats</div>
-            </div>
-            <div
-              class="flex flex-col items-center  bg-gray-100 border border-gray-200 mt-4 w-full py-6 px-4 rounded-lg">
-              <div class="h-20 w-20 rounded-full border overflow-hidden image-IA"></div>
-              <div class="text-sm font-semibold mt-2">Tradutor de Inglês</div>
-              <div class="text-xs text-gray-500">Preço: 0,50€/mil caracteres</div>
-            </div>
-            <div class="flex flex-col mt-8">
-              <div class="flex flex-row items-center justify-between text-xs">
-                <span class="font-bold">Conversas</span>
-                <span class="flex items-center justify-center bg-gray-300 h-4 w-4 rounded-full">2</span>
-              </div>
-              <div class="flex flex-col space-y-1 mt-4 -mx-2 h-80 overflow-y-auto">
-                <button class="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
-                  <div class="flex items-center justify-center h-8 w-8 bg-indigo-200 rounded-full">F</div>
-                  <div class="ml-2 text-sm font-semibold">Francês</div>
-                </button>
-                <button class="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
-                  <div class="flex items-center justify-center h-8 w-8 bg-gray-200 rounded-full">F</div>
-                  <div class="ml-2 text-sm font-semibold">Fitness</div>
-                  <div class="flex items-center justify-center ml-auto text-xs text-white bg-red-500 h-4 w-4 rounded leading-none">2</div>
-                </button>
-                <button class="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
-                  <div class="flex items-center justify-center h-8 w-8 bg-orange-200 rounded-full">N</div>
-                  <div class="ml-2 text-sm font-semibold">Nutrição</div>
-                </button>
-                <button class="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
-                  <div class="flex items-center justify-center h-8 w-8 bg-pink-200 rounded-full">C</div>
-                  <div class="ml-2 text-sm font-semibold">CSS</div>
-                </button>
-                <button class="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
-                  <div class="flex items-center justify-center h-8 w-8 bg-purple-200 rounded-full" >E</div>
-                  <div class="ml-2 text-sm font-semibold">Escrita</div>
-                </button>
-                <button class="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
-                  <div class="flex items-center justify-center h-8 w-8 bg-indigo-200 rounded-full">M</div>
-                  <div class="ml-2 text-sm font-semibold">Matemática</div>
-                </button>
-              </div>
-            </div>
-          </div>
+          
           <!-- Chat -->
           <div class="flex flex-col flex-auto h-full p-6">
             <div class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-full p-4">
+              <div class="h-14 mb-4 p-4 text-white bg-gray-800 rounded-2xl text-l flex justify-center items-center">
+                <button class="flex items-center justify-center bg-gray-700 hover:bg-gray-600 rounded-full text-white px-4 py-1 mr-2">
+                  <svg class="w-4 h-4 transform -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l-9-2 9-18 9 18-9 2zm0 0v-8"></path>
+                  </svg>
+                </button>
+                <p class="ml-2"><strong>IA Chat -</strong> Inglês</p>
+              </div>
+
               <div class="flex flex-col h-full overflow-x-auto mb-4">
                 <div class="flex flex-col h-full">
                   <div class="grid grid-cols-12 gap-y-2">
-                    <div class="col-start-1 col-end-8 p-3 rounded-lg">
+                    <div class="col-start-1 col-end-12 p-3 rounded-lg">
                       <div class="flex flex-row items-center">
                         <div class="flex items-center justify-center h-10 w-10 rounded-full  bg-gray-800 text-white flex-shrink-0">I</div>
                         <div class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
@@ -77,7 +27,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-start-1 col-end-8 p-3 rounded-lg">
+                    <div class="col-start-1 col-end-12 p-3 rounded-lg">
                       <div class="flex flex-row items-center">
                         <div class="flex items-center justify-center h-10 w-10 rounded-full  bg-gray-800 text-white flex-shrink-0">I</div>
                         <div class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
@@ -85,23 +35,23 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-start-6 col-end-13 p-3 rounded-lg">
+                    <div class="col-start-3 col-end-13 p-3 rounded-lg">
                       <div class="flex items-center justify-start flex-row-reverse">
-                        <div class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">You</div>
+                        <div class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">Eu</div>
                         <div class="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
                           <div>Olá, preciso de ajuda para traduzir um texto do português para o inglês. O texto é o seguinte: "Gostaríamos de informar que haverá uma reunião geral da empresa na próxima sexta-feira, dia 20 de abril, às 14h. A reunião será realizada no auditório principal e abordará os resultados do último trimestre, bem como as metas para o próximo período. Contamos com a presença de todos para discutirmos estratégias e alinharmos nossos objetivos. Se você tiver alguma dúvida ou sugestão, por favor, envie-nos antes da reunião." </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-start-6 col-end-13 p-3 rounded-lg">
+                    <div class="col-start-3 col-end-13 p-3 rounded-lg">
                       <div class="flex items-center justify-start flex-row-reverse">
-                        <div class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">You</div>
+                        <div class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">Eu</div>
                         <div class="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
                           <div>É possível traduzir esse texto para mim?</div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-start-1 col-end-8 p-3 rounded-lg">
+                    <div class="col-start-1 col-end-12 p-3 rounded-lg">
                       <div class="flex flex-row items-center">
                         <div class="flex items-center justify-center h-10 w-10 rounded-full  bg-gray-800 text-white flex-shrink-0">I</div>
                         <div class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
@@ -109,15 +59,15 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-start-6 col-end-13 p-3 rounded-lg">
+                    <div class="col-start-3 col-end-13 p-3 rounded-lg">
                       <div class="flex items-center justify-start flex-row-reverse">
-                        <div class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">You</div>
+                        <div class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">Eu</div>
                         <div class="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
                           <div>Muito obrigado pela sua ajuda! Você está sendo muito útil com as traduções.</div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-start-1 col-end-8 p-3 rounded-lg">
+                    <div class="col-start-1 col-end-12 p-3 rounded-lg">
                       <div class="flex flex-row items-center">
                         <div class="flex items-center justify-center h-10 w-10 rounded-full  bg-gray-800 text-white flex-shrink-0">I</div>
                         <div class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
@@ -140,23 +90,11 @@
                 <div class="ml-4">
                   <button
                     class="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0">
-                    <span>Enviar</span>
-                    <span class="ml-2">
-                      <svg
-                        class="w-4 h-4 transform rotate-45 -mt-px"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                        ></path>
-                      </svg>
-                    </span>
+
+                    <svg class="w-4 h-4 transform rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                    </svg>
+                    
                   </button>
                 </div>
               </div>
@@ -173,17 +111,5 @@
 </script>
 
 <style scoped>
-.image-IA {
-    background-image: url('/src/assets/images/IA.jpg'); 
-    background-size: cover;
-    background-position: center;
-    border: 2px solid #1B1D2D;
-}
 
-.image-client {
-    background-image: url('/src/assets/images/cliente.jpg');
-    background-size: cover;
-    background-position: center;
-    border: 2px solid #1B1D2D;
-}
 </style>

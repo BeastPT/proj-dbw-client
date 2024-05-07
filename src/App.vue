@@ -11,7 +11,7 @@ import precoIA from './views/precoIA.vue';
 </script>
 
 <template>    
-    <Estilo_vida/>
+    <Chat/>
 </template>
 
 <style scoped>

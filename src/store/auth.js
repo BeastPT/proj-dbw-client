@@ -2,8 +2,7 @@ import { defineStore } from "pinia";
 
 const BASE_URL = "http://localhost:3001/api/";
 
-export default defineStore({
-    id: "auth",
+export default defineStore('auth', {
     state: () => ({
         user: JSON.parse(localStorage.getItem('user')),
     }),

@@ -39,16 +39,15 @@ import ButtonLanguage from '@/components/ButtonLanguage.vue';
 import FAQ from '@/components/FAQ.vue'; 
 import Promotion from '@/components/Promotion.vue';
 
-
 const countries = [
-  { image: 'src/assets/images/image1.jpg', altText: 'Ingles', name: 'Inglês' },
-  { image: 'src/assets/images/image2.jpg', altText: 'Espanhol', name: 'Espanhol' },
-  { image: 'src/assets/images/image3.jpg', altText: 'Frances', name: 'Francês' },
-  { image: 'src/assets/images/image4.jpg', altText: 'Alemao', name: 'Alemão' },
-  { image: 'src/assets/images/image5.jpg', altText: 'Mandarim', name: 'Mandarim' },
-  { image: 'src/assets/images/image6.jpg', altText: 'Russo', name: 'Russo' },
-  { image: 'src/assets/images/image7.jpg', altText: 'Arabe', name: 'Árabe' },
-  { image: 'src/assets/images/image8.jpg', altText: 'Hindi', name: 'Hindi' }
+  { image: 'image1.jpg', altText: 'Ingles', name: 'Inglês' },
+  { image: 'image2.jpg', altText: 'Espanhol', name: 'Espanhol' },
+  { image: 'image3.jpg', altText: 'Frances', name: 'Francês' },
+  { image: 'image4.jpg', altText: 'Alemao', name: 'Alemão' },
+  { image: 'image5.jpg', altText: 'Mandarim', name: 'Mandarim' },
+  { image: 'image6.jpg', altText: 'Russo', name: 'Russo' },
+  { image: 'image7.jpg', altText: 'Arabe', name: 'Árabe' },
+  { image: 'image8.jpg', altText: 'Hindi', name: 'Hindi' }
 ];
 
 const negociosFaqs = [

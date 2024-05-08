@@ -1,22 +1,64 @@
-<template> 
+<template>
+  <div class="  font-sans bg-gray-900">
+  <div class=" md:mx-12 flex h-screen ">
+    <div id="chatMenu" class="hidden sm:flex flex-col w-1/5">
+      <a class=" flex mt-6 mx-4 p-3 text-lg items-center justify-center gap-3 rounded-md hover:bg-gray-500/10 transition-colors duration-200 text-white cursor-pointer flex-shrink-0 border border-white/20">
+        IA Chats
+      </a>
+      <div class=" overflow-y-auto h-5/6">
+      <router-link to="/chat" class="hover:cursor-pointer mt-2 mx-4 bg-gray-900 text-white">
+        <div class="px-4 h-12 rounded-md bg-gray-700 flex items-center ">
+          <span>Inglês</span>
+        </div>
+      </router-link>
+      <router-link to="/chat" class="hover:cursor-pointer mt-10 mx-4 bg-gray-900 text-white">
+        <div class="px-4 h-12  rounded-md bg-gray-700 flex items-center">
+          <span>Espanhol</span>
+        </div>
+      </router-link>
+      <router-link to="/chat" class="hover:cursor-pointer mx-4 bg-gray-900 text-white">
+        <div class="px-4 h-12  rounded-md bg-gray-700 flex items-center" >
+          <span>Espanhol</span>
+        </div>
+      </router-link>
+      <router-link to="/chat" class="hover:cursor-pointer mt-2 mx-4 bg-gray-900 text-white">
+        <div class="px-4 h-12  rounded-md bg-gray-700 flex items-center ">
+          <span>Espanhol</span>
+        </div>
+      </router-link>
+      <router-link to="/chat" class="hover:cursor-pointer mt-2 mx-4 bg-gray-900 text-white">
+        <div class="px-4 h-12 rounded-md bg-gray-700 flex items-center p-4">
+          <span>Espanhol</span>
+        </div>
+      </router-link>
+      <router-link to="/chat" class="hover:cursor-pointer mt-2 mx-4 bg-gray-900 text-white">
+        <div class="px-4 h-12 rounded-md bg-gray-700 flex items-center p-4">
+          <span>Espanhol</span>
+        </div>
+      </router-link>
+     
+  
+    </div>
+      <!-- Repeat for other chat links -->
+    </div>
+    
+    <div class="flex-1 ">
+      <div class="bg-gray-900 flex h-full">
 
-<div class="md:mx-32 sm:mx-4" style="font-family: Arial, sans-serif;">
-    <div class="flex h-screen antialiased text-gray-800">
-        <div class="flex flex-row h-full w-full overflow-x-hidden">
-          
-          <!-- Chat -->
-          <div class="flex flex-col flex-auto h-full p-6">
-            <div class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-full p-4">
-              <div class="h-14 mb-4 p-4 text-white bg-gray-800 rounded-2xl text-l flex justify-center items-center">
-                <button class="flex items-center justify-center bg-gray-700 hover:bg-gray-600 rounded-full text-white px-4 py-1 mr-2">
-                  <svg class="w-4 h-4 transform -rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l-9-2 9-18 9 18-9 2zm0 0v-8"></path>
-                  </svg>
-                </button>
-                <p class="ml-2"><strong>IA Chat -</strong> Inglês</p>
-              </div>
-
-              <div class="flex flex-col h-full overflow-x-auto mb-4">
+          <div class="flex h-screen antialiased text-gray-800">
+            <div class="flex flex-row h-full w-full overflow-x-hidden">
+              <div class="flex flex-col flex-auto h-full p-6">
+                <div class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-full p-4">
+                  <div class="h-14 mb-4 p-4 text-white bg-gray-900 rounded-2xl text-l flex justify-center items-center">
+                    <button class="flex items-center justify-center bg-gray-700 hover:bg-gray-600 rounded-full text-white px-4 py-1 mr-2">
+                      <svg id="menuToggle" class="w-4 h-4 transform -rotate-90 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l-9-2 9-18 9 18-9 2zm0 0v-8"></path>
+                    </svg>
+                                     
+                    </button>
+                    <p class="ml-2"><strong>IA Chat -</strong> Inglês</p>
+                  </div>
+                  <div class="flex flex-col h-full overflow-x-auto mb-4">
                 <div class="flex flex-col h-full">
                   <div class="grid grid-cols-12 gap-y-2">
                     <div class="col-start-1 col-end-12 p-3 rounded-lg">
@@ -98,18 +140,18 @@
                   </button>
                 </div>
               </div>
+           </div>
+           </div>
             </div>
           </div>
         </div>
       </div>
-
-</div>
-    
+    </div>
+  </div>
 </template>
 
+
 <script>
+
 </script>
 
-<style scoped>
-
-</style>

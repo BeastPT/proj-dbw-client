@@ -18,14 +18,20 @@ const router = createRouter({
           component: () => import('../views/AboutUs.vue')
         },
         {
-          path: 'profile',
-          name: 'profile',
-          component: () => import('../views/Profile.vue')
-        },
-        {
-          path: 'purchase',
-          name: 'purchase',
-          component: () => import('../views/Purchase.vue')
+          path: 'user',
+          //component: () => import('../views/Website.vue'),
+          children: [
+            {
+              path: 'profile',
+              name: 'profile',
+              component: () => import('../views/Profile.vue')
+            },
+            {
+              path: 'purchase',
+              name: 'purchase',
+              component: () => import('../views/Purchase.vue')
+            },
+          ]
         }
       ]
     },

@@ -6,11 +6,9 @@ export default defineStore({
     id: "auth",
     state: () => ({
         user: JSON.parse(localStorage.getItem('user')),
-        loading: false,
     }),
     actions: {
         async login(username, password) {
-            this.loading = true;
             try {
                 const user = await fetch(`${BASE_URL}auth/login`, {
                     method: "POST",
@@ -37,7 +35,6 @@ export default defineStore({
             router.push('/login');
         },
         async register(email, username, password) {
-            this.loading = true;
             try {
                 const user = await fetch(`${BASE_URL}auth/register`, {
                     method: "POST",

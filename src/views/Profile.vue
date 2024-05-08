@@ -32,8 +32,16 @@
     <div class="bg-white p-8 rounded-lg border border-gray-900 mb-8">
       <form class="flex flex-wrap -mx-2">
         <div class="w-full md:w-1/2 px-2 mb-4">
-          <label for="morada" class="block text-gray-700 font-semibold mb-2">Morada:</label>
-          <input type="text" id="morada" name="morada" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui">
+          <label for="nome" class="block text-gray-700 font-semibold mb-2">Nome Completo:</label>
+          <input type="text" id="nome" name="nome" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui">
+        </div>
+        <div class="w-full md:w-1/2 px-2 mb-4">
+          <label for="email" class="block text-gray-700 font-semibold mb-2">Morada:</label>
+          <input type="text" id="email" name="email" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui">
+        </div>
+        <div class="w-full md:w-1/2 px-2 mb-4">
+          <label for="email" class="block text-gray-700 font-semibold mb-2">E-mail:</label>
+          <input type="text" id="email" name="email" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui">
         </div>
         <div class="w-full md:w-1/2 px-2 mb-4">
           <label for="porta" class="block text-gray-700 font-semibold mb-2">Porta:</label>

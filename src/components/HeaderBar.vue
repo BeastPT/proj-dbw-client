@@ -61,22 +61,26 @@
   
   <script>
   import { ref } from 'vue';
+  import authStore from '@/store/auth.js';
+  import { useRouter } from 'vue-router';
   
   export default {
     setup() {
+      const auth = authStore()
+      const router = useRouter();
       let showMenu = ref(false);
-      let loggedIn = ref(false);
+      let loggedIn = ref(auth.user);
   
       const toggleNav = () => (showMenu.value = !showMenu.value);
   
       const login = () => {
         
-        loggedIn.value = true;
+        router.push('/login');
       };
   
       const register = () => {
        
-        loggedIn.value = true;
+        router.push('/register');
       };
   
       return { showMenu, toggleNav, loggedIn, login, register };

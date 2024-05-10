@@ -1,5 +1,6 @@
 <template>
-  <div class="mx-auto md:mx-4">
+  <div v-if="!isLoaded"></div>
+  <div v-else class="mx-auto md:mx-4">
     <!-- #####################  PARTE DE CIMA ####################-->
     <div class="text-center font-semibold mb-10 text-2xl p-4">
       <!-- Botões com texto reduzido em telas menores -->
@@ -107,6 +108,37 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import userStore from '@/store/user.js'
+
+const isLoaded = ref(false)
+const userSt = userStore()
+
+const router = useRouter()
+const BASE_URL = "http://localhost:3001/api/";
+try {
+  const response = await fetch(`${BASE_URL}user/${userSt.user._id}`, {
+    headers: {
+      'authorization': userSt.token
+    }
+
+  })
+  console.log(response)
+  if (!response.ok) {
+    router.push('/');
+  }
+
+  const dataObj = (await response.json()).message
+  console.log(dataObj)
+  isLoaded.value = true;
+} catch (error) {
+  router.push('/');
+}
+
+</script>
 
 <style scoped>
 @media (max-width: 415px) {

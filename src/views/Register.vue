@@ -8,7 +8,7 @@ import IMail from '@/components/icons/IMail.vue'
 import { ref } from 'vue';
 
 import { RouterLink, useRouter } from 'vue-router';
-import authStore from '@/store/auth.js';
+import userStore from '@/store/user.js';
 
 const email = ref('');
 const username = ref('');
@@ -16,8 +16,8 @@ const password = ref('');
 const router = useRouter()
 
 function register() {
-    const auth = authStore();
-    return auth.register(email.value, username.value, password.value)
+    const userSt = userStore();
+    return userSt.register(email.value, username.value, password.value)
         .then(() => {
             router.push('/');
         })

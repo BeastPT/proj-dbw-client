@@ -68,15 +68,15 @@ const router = createRouter({
   ]
 })
 
-import authStore from '@/store/auth.js'
+import userStore from '@/store/user.js'
 const needsAuth = ['profile', 'purchase', 'purchase']
 router.beforeEach((to, from) => {
-  const auth = authStore()
-  if ( (to.name == 'login' || to.name == 'register') && auth.user) {
+  const userSt = userStore()
+  if ( (to.name == 'login' || to.name == 'register') && userSt.token) {
     return '/'
   }
 
-  if (needsAuth.includes(to.name) && !auth.user) {
+  if (needsAuth.includes(to.name) && !userSt.token) {
     return '/login'
   }
 })

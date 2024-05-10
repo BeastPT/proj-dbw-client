@@ -6,15 +6,15 @@ import IPerson from '@/components/icons/IPerson.vue'
 
 import { ref } from 'vue';
 import { RouterLink, useRouter } from 'vue-router';
-import authStore from '@/store/auth.js';
+import userStore from '@/store/user.js';
 
 const username = ref('');
 const password = ref('');
 const router = useRouter()
 
 function login() {
-  const auth = authStore();
-  return auth.login(username.value, password.value)
+  const userSt = userStore();
+  return userSt.login(username.value, password.value)
     .then(() => {
       router.push('/');
     })

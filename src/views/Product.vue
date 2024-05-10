@@ -1,6 +1,7 @@
 <template>
-  <div class="mx-4 md:mx-8 lg:mx-16 xl:mx-24">
-    <img :src="data.banner" :alt="name" class="banner mb-4 mt-4 mx-auto rounded-lg">
+  <div v-if="!isLoaded"></div>
+  <div v-else class="mx-4 md:mx-8 lg:mx-16 xl:mx-24">
+    <img :src="`/images/${data.banner}`" :alt="name" class="banner mb-4 mt-4 mx-auto rounded-lg">
 
     <h1 class="text-center font-bold text-3xl mb-4 md:text-2xl underline">{{data.popular.title}}</h1>
 
@@ -33,18 +34,25 @@ import ButtonLanguage from '@/components/ButtonLanguage.vue';
 import FAQ from '@/components/FAQ.vue'; 
 import Promotion from '@/components/Promotion.vue';
 import { useRoute, useRouter } from 'vue-router';
+import { ref } from 'vue';
+
+const isLoaded = ref(false);
 const router = useRoute();
 const router2 = useRouter();
 
 const BASE_URL = "http://localhost:3001/api/";
-const response = await fetch(`${BASE_URL}product/${router.params.id}`)
+try {
+  const response = await fetch(`${BASE_URL}product/${router.params.id}`)
 
-if (!response.ok) {
-  await router2.push('/');
+  if (!response.ok || response.status === 404) {
+    router2.push('/');
+  }
+  const dataObj = (await response.json()).message
+  const { name, data, resume, faq } = dataObj 
+  isLoaded.value = true;
+} catch (error) {
+  router2.push('/');
 }
-const dataObj = (await response.json()).message
-const { name, data, resume, faq } = dataObj 
-
 </script>
 
 <style scoped>

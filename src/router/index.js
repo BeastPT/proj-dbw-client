@@ -18,14 +18,24 @@ const router = createRouter({
           component: () => import('../views/AboutUs.vue')
         },
         {
-          path: 'traducao',
-          name: 'traducao',
-          component: () => import('../views/Traduction.vue')
+          path: '/test',
+          name: 'test',
+          component: () => import('../views/Product.vue')
         },
         {
           path: '/produto/:id',
           name: 'product',
-          component: () => import('../views/Traduction.vue')
+          component: () => import('../views/Product.vue')
+        },
+        {
+          path: 'support',
+          name: 'support',
+          component: () => import('../views/ObterAjuda_IA.vue')
+        },
+        {
+          path: 'chat',
+          name: 'chat',
+          component: () => import('../views/Chat.vue')
         },
         {
           path: 'user',

@@ -6,7 +6,12 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
     <HeaderBar /> 
-        <RouterView  />
+        <Suspense>
+            <RouterView  />
+            <template #fallback>
+                Loading...
+            </template>
+        </Suspense>
     <FooterBar />
 </template>
 

@@ -61,15 +61,15 @@
   
   <script>
   import { ref } from 'vue';
-  import authStore from '@/store/auth.js';
+  import userStore from '@/store/user.js';
   import { useRouter } from 'vue-router';
   
   export default {
     setup() {
-      const auth = authStore()
+      const userSt = userStore()
       const router = useRouter();
       let showMenu = ref(false);
-      let loggedIn = ref(auth.user);
+      let loggedIn = ref(userSt.token ? true : false);
   
       const toggleNav = () => (showMenu.value = !showMenu.value);
   

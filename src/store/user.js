@@ -2,8 +2,9 @@ import { defineStore } from "pinia";
 
 const BASE_URL = "http://localhost:3001/api/";
 
-export default defineStore('auth', {
+export default defineStore('user', {
     state: () => ({
+        token: JSON.parse(localStorage.getItem('token')),
         user: JSON.parse(localStorage.getItem('user')),
     }),
     actions: {
@@ -20,9 +21,11 @@ export default defineStore('auth', {
                     throw new Error("Invalid credentials");
                 }
 
-                this.user = await user.json();
-                const token = this.user.token;
-                localStorage.setItem('user', JSON.stringify(token));
+                const data = await user.json();
+                this.token = data.token;
+                localStorage.setItem('token', JSON.stringify(this.token));
+                this.user = data.user;
+                localStorage.setItem('user', JSON.stringify(this.user));
             } catch (error) {
                 console.log(error);
                 throw error;
@@ -46,9 +49,11 @@ export default defineStore('auth', {
                     throw new Error("Wrong");
                 }
 
-                this.user = await user.json();
-                const token = this.user.token;
-                localStorage.setItem('user', token);
+                const data = await user.json();
+                this.token = data.token;
+                localStorage.setItem('token', JSON.stringify(token));
+                this.user = data.user;
+                localStorage.setItem('user', JSON.stringify(user));
             } catch (error) {
                 console.log(error);
                 throw error;

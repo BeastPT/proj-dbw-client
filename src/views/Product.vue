@@ -1,6 +1,6 @@
 <template>
   <div class="mx-4 md:mx-8 lg:mx-16 xl:mx-24">
-    <img :src="data.banner" :alt="name" class="banner mb-4 mt-4 mx-auto rounded-lg">
+    <img :src="`/images/${data.banner}`" :alt="name" class="banner mb-4 mt-4 mx-auto rounded-lg">
 
     <h1 class="text-center font-bold text-3xl mb-4 md:text-2xl underline">{{data.popular.title}}</h1>
 

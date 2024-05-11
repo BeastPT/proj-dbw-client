@@ -1,54 +1,39 @@
 <template>
-  <div class="w-full mt-2 space-x-3 max-w-xs flex" :class="{ 'ml-auto justify-end':notIA, 'justify-start': !notIA }">
-    <div v-if="!notIA" class="flex-shrink-0 h-10 w-10 rounded-full image-IA"></div> 
-    <div>
-      <div :class="{ 'bg-gray-300': notIA, 'bg-blue-400 text-white': !notIA }" class="p-3 rounded-r-lg rounded-bl-lg">
-        <p class="text-sm">{{ message }}</p>
+    <div :class="{ 'col-start-1 col-end-12': !isUser, 'col-start-3 col-end-13': isUser }" class="p-3 rounded-lg">
+      <div v-if="!isUser" class="flex flex-row items-center">
+        <div class="rounded-full overflow-hidden flex-shrink-0" style="width: 2.5rem; height: 2.5rem;">
+          <img src="/src/assets/images/IA_icon.png" alt="Avatar da IA" class="h-full w-full">
+        </div>
+        <div class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
+          <div>{{ message }}</div>
+        </div>
       </div>
-      <span class="text-xs text-gray-500 leading-none">{{ timestamp }}</span>
+      <div v-else class="flex items-center justify-start flex-row-reverse">
+        <div class="rounded-full overflow-hidden flex-shrink-0" style="width: 2.5rem; height: 2.5rem;">
+          <img src="/src/assets/images/user_icon.png" alt="Avatar do usuário" class="h-full w-full">
+        </div>
+        <div class="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
+          <div>{{ message }}</div>
+        </div>
+      </div>
     </div>
-    <div v-if="notIA" class="flex-shrink-0 h-10 w-10 rounded-full image-client"></div> 
-  </div>
-</template>
-
-<script>
-export default {
-  props: {
-    notIA: {
-      type: Boolean,
-      required: true
-    },
-    message: {
-      type: String,
-      required: true
-    },
-    timestamp: {
-      type: String,
-      required: true
+  </template>
+  
+  <script>
+  export default {
+    props: {
+      isUser: {
+        type: Boolean,
+        required: true
+      },
+      message: {
+        type: String,
+        required: true
+      }
     }
-  }
-};
-</script>
-
-<style scoped>
-/* Estilos das imagens dos avatares */
-.image-IA,
-.image-client {
-  background-size: cover;
-  background-position: center;
-  border: 2px solid #1b1d2d;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-}
-
-/* Estilo específico do avatar da IA */
-.image-IA {
-  background-image: url('/src/assets/images/IA.jpg'); /* Substitua pelo caminho correto da imagem da IA */
-}
-
-/* Estilo específico do avatar do cliente */
-.image-client {
-  background-image: url('/src/assets/images/cliente.jpg'); /* Substitua pelo caminho correto da imagem do cliente */
-}
-</style>
+  };
+  </script>
+  
+  <style scoped>
+  </style>
+  

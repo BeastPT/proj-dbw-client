@@ -33,6 +33,17 @@ const router = createRouter({
           component: () => import('../views/ObterAjuda_IA.vue')
         },
         {
+          path: 'productunavailable',
+          name: 'productunavailable',
+          component: () => import('../views/ProductUnavailable.vue')
+
+        },
+        {
+          path: 'community',
+          name: 'community',
+          component: () => import('../views/Comunidade.vue')
+        },
+        {
           path: 'logout',
           name: 'logout',
           component: () => import('../views/Logout.vue')

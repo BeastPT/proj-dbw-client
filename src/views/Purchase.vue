@@ -53,7 +53,7 @@ export default {
           rightTitle: 'Estado',
           rightStatus: 'Concluído',
           rightDeliveryDate: '15/02/2024',
-          imageSrc: 'src/assets/images/image24.png',
+          imageSrc: '/images/image24.png',
           imageAlt: 'Logo1'
         },
       ]

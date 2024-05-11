@@ -22,15 +22,8 @@
         
         <div class="overflow-y-auto h-5/6"> 
           <div>
-            <RouterLink to="/chat" class="hover:cursor-pointer mt-2 bg-gray-900 text-white">
-              <div class="p-2 h-12 mt-2 mr-2 rounded-md bg-gray-700 flex items-center hover:bg-gray-800">
-                <span>Inglês</span>
-              </div>
-            </RouterLink>
-            <RouterLink to="/chat" class="hover:cursor-pointer bg-gray-900 text-white">
-              <div class="p-2 h-12 mt-2 mr-2 rounded-md bg-gray-700 flex items-center hover:bg-gray-800">
-                <span>Inglês</span>
-              </div>
+            <RouterLink v-for="(item, index) in chatOptions" :key="index" :to="item.route" class="hover:cursor-pointer mt-2 bg-gray-900 text-white">
+              <ChatLink :label="item.label" />
             </RouterLink>
           </div>
         </div>
@@ -93,10 +86,12 @@
 <script>
 import { RouterLink } from 'vue-router';
 import ChatMessage from '@/components/ChatMessage.vue';
+import ChatLink from '@/components/ChatLink.vue';
 
 export default {
   components: {
-    ChatMessage 
+    ChatMessage,
+    ChatLink 
   },
   data() {
     return {
@@ -113,6 +108,11 @@ export default {
         { text: "Fico feliz em poder ajudar! Se você tiver mais textos ou frases para traduzir, é só me enviar.", isUser: false },
         { text: "Fico feliz em poder ajudar! Se você tiver mais textos ou frases para traduzir, é só me enviar.", isUser: false },
         { text: "Fico feliz em poder ajudar! Se você tiver mais textos ou frases para traduzir, é só me enviar.", isUser: true }
+      ],
+      chatOptions: [
+        { label: 'Inglês', route: '/chat' },
+        { label: 'Francês', route: '/chat' },
+        { label: 'Fitness', route: '/fitness-chat' }
       ]
     };
   },

@@ -1,9 +1,9 @@
 <template>
     <div class="bg-gray-900">
-      <nav class="container px-6 py-20 mx-auto md:flex md:justify-between md:items-center">
+      <nav class="container px-6 py-16 mx-auto md:flex md:justify-between md:items-center">
         <div class="flex items-center justify-between w-full">
           <button class="text-xl font-bold text-gray-100 md:text-2xl hover:text-indigo-400">
-            <img src="" alt="Logo" class="h-6 w-6">
+            <img src="/images/skillswap.png" alt="Logo" class="h-16">
           </button>
           
           <div class="hidden md:flex items-center justify-end w-full md:w-auto"> 

@@ -19,51 +19,51 @@
       <div class="flex items-center mb-4 md:mb-0">
         <img src="@/assets/images/image12.png" class="w-16 h-16 rounded-full" alt="Imagem de perfil">
         <div class="ml-4">
-          <h2 class="text-lg mb-1">Chico Moedas</h2>
-          <p class="text-sm text-gray-500">Membro da SKILLswap desde 2024</p>
+          <h2 class="text-lg mb-1">{{fullnameh}}</h2>
+          <p class="text-sm text-gray-500">Membro da SKILLswap desde {{yearjoined}}</p>
         </div>
       </div>
       <div class=" md:text-right md:mb-0 md:ml-auto md:mr-4">
         <button class="bg-gray-900 text-white px-3 py-2 rounded">Alterar foto de perfil</button>
       </div>
-      <button class="bg-gray-900 text-white px-3 py-2 rounded hover:bg-gray-800 mt-4 md:mt-0">Sair da Sessão</button>
+      <button @click="logout" class="bg-gray-900 text-white px-3 py-2 rounded hover:bg-gray-800 mt-4 md:mt-0">Sair da Sessão</button>
     </div>
     
 
     <div class="bg-white p-8 rounded-lg border border-gray-900 mb-8">
-      <form class="flex flex-wrap -mx-2">
+      <form @submit.prevent="changeData" class="flex flex-wrap -mx-2">
         <div class="w-full md:w-1/2 px-2 mb-4">
-          <label for="nome" class="block text-gray-700 font-semibold mb-2">Nome Completo:</label>
-          <input type="text" id="nome" name="nome" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui">
+          <label for="fullname" class="block text-gray-700 font-semibold mb-2">Nome Completo:</label>
+          <input type="text" id="fullname" v-model="formdata.fullname" name="fullname" class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.fullname || 'Escreva aqui'">
         </div>
         <div class="w-full md:w-1/2 px-2 mb-4">
-          <label for="email" class="block text-gray-700 font-semibold mb-2">Morada:</label>
-          <input type="text" id="email" name="email" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui">
+          <label for="address" class="block text-gray-700 font-semibold mb-2">Morada:</label>
+          <input type="text" id="address" v-model="formdata.address" name="address" class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.address || 'Escreva aqui'">
         </div>
         <div class="w-full md:w-1/2 px-2 mb-4">
           <label for="email" class="block text-gray-700 font-semibold mb-2">E-mail:</label>
-          <input type="text" id="email" name="email" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui">
+          <input type="text" id="email" v-model="formdata.email" name="email" class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.email || 'Escreva aqui'">
         </div>
         <div class="w-full md:w-1/2 px-2 mb-4">
-          <label for="porta" class="block text-gray-700 font-semibold mb-2">Porta:</label>
-          <input type="text" id="porta" name="porta" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui">
+          <label for="door" class="block text-gray-700 font-semibold mb-2">Porta:</label>
+          <input type="text" id="address_door" v-model="formdata.address_door" name="door" class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.address_number || 'Escreva aqui'">
         </div>
 
         <div class="w-full md:w-1/4 px-2 mb-4">
-          <label for="codigo_postal" class="block text-gray-700 font-semibold mb-2">Código Postal:</label>
-          <input type="text" id="codigo_postal" name="codigo_postal" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui">
+          <label for="postal_code" class="block text-gray-700 font-semibold mb-2">Código Postal:</label>
+          <input type="text" id="postal_code" v-model="formdata.postal_code" name="postal_code" class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.postal_code || 'Escreva aqui'">
         </div>
         <div class="w-full md:w-1/4 px-2 mb-4">
-          <label for="pais" class="block text-gray-700 font-semibold mb-2">País:</label>
-          <input type="text" id="pais" name="pais" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui">
+          <label for="country" class="block text-gray-700 font-semibold mb-2">País:</label>
+          <input type="text" id="country" v-model="formdata.country" name="country" class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.country || 'Escreva aqui'">
         </div>
         <div class="w-full md:w-1/4 px-2 mb-4">
-          <label for="cidade" class="block text-gray-700 font-semibold mb-2">Cidade:</label>
-          <input type="text" id="cidade" name="cidade" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui">
+          <label for="city" class="block text-gray-700 font-semibold mb-2">Cidade:</label>
+          <input type="text" id="city" v-model="formdata.city" name="city" class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.city || 'Escreva aqui'">
         </div>
         <div class="w-full md:w-1/4 px-2 mb-4">
-          <label for="nacionalidade" class="block text-gray-700 font-semibold mb-2">Nacionalidade:</label>
-          <input type="text" id="nacionalidade" name="nacionalidade" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui">
+          <label for="nacionality" class="block text-gray-700 font-semibold mb-2">Nacionalidade:</label>
+          <input type="text" id="nacionality" v-model="formdata.nacionality" name="nacionality" class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.nacionality || 'Escreva aqui'">
         </div>
 
         <!--################## Botaoo de envio #########################-->
@@ -81,24 +81,26 @@
 
     <!-- FORMULÁRIO DE MUDANCA DE PALAVRA-PASSE -->
     <div class="bg-white p-8 rounded-lg border border-gray-900 mb-8">
-      <form>
+      <form @submit.prevent="changePassword">
         <!-- Campo da senha antiga -->
         <div class="input-container">
-          <label for="senha_antiga" class="block text-gray-700 font-semibold mb-2">Palavra-passe Antiga:</label>
-          <input type="password" id="senha_antiga" name="senha_antiga" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui">
+          <label for="old_password" class="block text-gray-700 font-semibold mb-2">Palavra-passe Antiga:</label>
+          <input type="password" id="old_password" name="old_password" v-model="updatePasswordData.old" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui" autocomplete="current-password">
         </div>
 
         <!-- Campo da nova senha -->
         <div class="input-container">
-          <label for="nova_senha" class="block text-gray-700 font-semibold mb-2">Nova Palavra-passe:</label>
-          <input type="password" id="nova_senha" name="nova_senha" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui">
+          <label for="new_password" class="block text-gray-700 font-semibold mb-2">Nova Palavra-passe:</label>
+          <input type="password" id="new_password" name="new_password" v-model="updatePasswordData.new" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui" autocomplete="new-password">
         </div>
 
         <!-- Campo de confirmcaoo  -->
         <div class="input-container">
-          <label for="confirmar_senha" class="block text-gray-700 font-semibold mb-2">Confirmar Nova Palavra-passe:</label>
-          <input type="password" id="confirmar_senha" name="confirmar_senha" class="mb-4 w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui">
+          <label for="confirm_password" class="block text-gray-700 font-semibold mb-2">Confirmar Nova Palavra-passe:</label>
+          <input type="password" id="confirm_password" name="confirm_password" v-model="updatePasswordData.confirm" class="mb-4 w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui" autocomplete="new-password">
         </div>
+
+        <input type="hidden" id="username" name="username" :value="userSt.user.username">
 
         <!-- Botão de envio -->
         <div class="button-container">
@@ -115,7 +117,29 @@ import { useRouter } from 'vue-router'
 import userStore from '@/store/user.js'
 
 const isLoaded = ref(false)
+const fullnameh = ref()
+const yearjoined = ref()
+const userData = ref()
 const userSt = userStore()
+
+const formdata = ref({
+  fullname: '',
+  address: '',
+  email: '',
+  address_door: '',
+  postal_code: '',
+  country: '',
+  city: '',
+  nacionality: ''
+})
+
+const updatePasswordData = ref({
+  old: '',
+  new: '',
+  confirm: ''
+})
+
+let dataObj = {}
 
 const router = useRouter()
 const BASE_URL = "http://localhost:3001/api/";
@@ -124,18 +148,72 @@ try {
     headers: {
       'authorization': userSt.token
     }
-
   })
-  console.log(response)
   if (!response.ok) {
     router.push('/');
   }
 
-  const dataObj = (await response.json()).message
-  console.log(dataObj)
+  dataObj = (await response.json()).message
+  fullnameh.value = dataObj.fullname ? `${dataObj.fullname} (${dataObj.username})` : dataObj.username
+  yearjoined.value = (new Date(dataObj.createdAt)).getFullYear()
+  userData.value = dataObj
   isLoaded.value = true;
 } catch (error) {
+  console.log(error)
   router.push('/');
+}
+
+async function changeData() {
+  try {
+    const response = await fetch(`${BASE_URL}user/${userSt.user._id}/edit`, {
+      method: 'POST',
+      headers: {
+        "authorization": userSt.token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formdata.value),
+    })
+
+    const msg = (await response.json()).message
+    if (!response.ok) {
+      return console.log(msg)
+    } else {
+      dataObj = msg
+      fullnameh.value = dataObj.fullname ? `${dataObj.fullname} (${dataObj.username})` : dataObj.username
+      yearjoined.value = (new Date(dataObj.createdAt)).getFullYear()
+      userData.value = dataObj
+      for (let key in formdata.value) {
+        formdata.value[key] = ''
+      }
+    }
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+async function changePassword() {
+  const { old: oldpassowrd, new: newpassword, confirm } = updatePasswordData.value
+  if (newpassword !== confirm) {
+    return console.log('As novas palavras-passe não coincidem')
+  }
+
+  if (oldpassowrd === newpassword) {
+    return console.log('A nova palavra-passe não pode ser igual à antiga')
+  }
+
+  userSt.updatePassword(oldpassowrd, newpassword)
+    .then(() => {
+      console.log('Password changed')
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+}
+
+
+async function logout() {
+  await userSt.logout()
 }
 
 </script>

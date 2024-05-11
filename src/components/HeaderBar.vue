@@ -22,9 +22,9 @@
             </template>
   
             <template v-else>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-20" fill="none" viewBox="0 0 24 24" stroke="white">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-              </svg>
+              <RouterLink to="/user/profile" class="ml-20">
+                <img :src="imgUrl" alt="Avatar" class="h-10 w-10 rounded-full">
+              </RouterLink>
             </template>
   
           </div>
@@ -43,9 +43,9 @@
               </button>
             </template>
             <template v-else>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-4" fill="none" viewBox="0 0 24 24" stroke="white">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-              </svg>
+              <RouterLink to="/user/profile" class="ml-4">
+                <img :src="imgUrl" alt="Avatar" class="h-10 w-10 rounded-full">
+              </RouterLink>
             </template>
           </div>
         </div>
@@ -60,17 +60,19 @@
   </template>
   
   <script>
-  import { ref } from 'vue';
+  import { ref, watch,computed } from 'vue';
+  import { storeToRefs } from 'pinia';
   import userStore from '@/store/user.js';
-  import { useRouter } from 'vue-router';
+  import { useRouter, RouterLink } from 'vue-router';
   
   export default {
     setup() {
       const userSt = userStore()
       const router = useRouter();
       let showMenu = ref(false);
-      let loggedIn = ref(userSt.token ? true : false);
-  
+      const { token: loggedIn, user} = storeToRefs(userSt)
+      const imgUrl = ref(user.value?.image_url || '/images/img_avatar.png')
+
       const toggleNav = () => (showMenu.value = !showMenu.value);
   
       const login = () => {
@@ -83,7 +85,7 @@
         router.push('/register');
       };
   
-      return { showMenu, toggleNav, loggedIn, login, register };
+      return { showMenu, toggleNav, loggedIn, login, register, imgUrl};
     },
   };
   </script>

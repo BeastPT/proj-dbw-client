@@ -33,9 +33,9 @@ export default defineStore('user', {
         },
         async logout() {
             this.user = null;
+            this.token = null;
             localStorage.removeItem('token');
             localStorage.removeItem('user');
-            router.push('/login');
         },
         async register(email, username, password) {
             try {

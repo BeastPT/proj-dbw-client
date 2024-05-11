@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!isLoaded"></div>
+  <div v-if="!isLoaded || !userSt.user"></div>
   <div v-else class="mx-auto md:mx-4">
     <!-- #####################  PARTE DE CIMA ####################-->
     <div class="text-center font-semibold mb-10 text-2xl p-4">
@@ -17,7 +17,7 @@
 
     <div class="font-semibold flex flex-col md:flex-row justify-between items-center mb-4 rounded-lg">
       <div class="flex items-center mb-4 md:mb-0">
-        <img src="@/assets/images/image12.png" class="w-16 h-16 rounded-full" alt="Imagem de perfil">
+        <img :src="imgUrl" class="w-16 h-16 rounded-full" alt="Imagem de perfil">
         <div class="ml-4">
           <h2 class="text-lg mb-1">{{fullnameh}}</h2>
           <p class="text-sm text-gray-500">Membro da SKILLswap desde {{yearjoined}}</p>
@@ -115,12 +115,16 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import userStore from '@/store/user.js'
-
+const router = useRouter()
 const isLoaded = ref(false)
 const fullnameh = ref()
 const yearjoined = ref()
 const userData = ref()
 const userSt = userStore()
+if (!userSt.token || !userSt.user) {
+  router.push('/login')
+}
+const imgUrl = ref(userSt.user?.image_url || '/images/img_avatar.png')
 
 const formdata = ref({
   fullname: '',
@@ -141,7 +145,6 @@ const updatePasswordData = ref({
 
 let dataObj = {}
 
-const router = useRouter()
 const BASE_URL = "http://localhost:3001/api/";
 try {
   const response = await fetch(`${BASE_URL}user/${userSt.user._id}`, {
@@ -214,6 +217,7 @@ async function changePassword() {
 
 async function logout() {
   await userSt.logout()
+  router.push('/logout')
 }
 
 </script>

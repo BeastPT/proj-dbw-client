@@ -33,6 +33,11 @@ const router = createRouter({
           component: () => import('../views/ObterAjuda_IA.vue')
         },
         {
+          path: 'logout',
+          name: 'logout',
+          component: () => import('../views/Logout.vue')
+        },
+        {
           path: 'chat',
           name: 'chat',
           component: () => import('../views/Chat.vue')

@@ -33,6 +33,7 @@ export default defineStore('user', {
         },
         async logout() {
             this.user = null;
+            localStorage.removeItem('token');
             localStorage.removeItem('user');
             router.push('/login');
         },
@@ -54,6 +55,24 @@ export default defineStore('user', {
                 localStorage.setItem('token', JSON.stringify(token));
                 this.user = data.user;
                 localStorage.setItem('user', JSON.stringify(user));
+            } catch (error) {
+                console.log(error);
+                throw error;
+            }
+        },
+        async updatePassword(oldpassword, newpassword) {
+            try {
+                const user = await fetch(`${BASE_URL}auth/updatepassword`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "authorization": this.token,
+                    },
+                    body: JSON.stringify({ oldpassword, newpassword }),
+                });
+                if (!user.ok) {
+                    throw (await user.json()).message
+                }
             } catch (error) {
                 console.log(error);
                 throw error;

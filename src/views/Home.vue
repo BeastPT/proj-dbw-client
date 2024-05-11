@@ -12,13 +12,13 @@
       <h2 class="font-bold text-2xl text-darkgray mb-8">Serviços populares</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 ml-auto mr-auto md:ml-28 md:mr-28 mb-10">
         <div class="group">
-          <img src="@/assets/images/image9.jpg" style="width: 200px; height: 250px;" class="mb-5 mx-auto cursor-pointer transition duration-300 ease-in-out transform group-hover:scale-105 rounded-lg" alt="Imagem 9">
+          <img src="/images/image9.jpg" style="width: 200px; height: 250px;" class="mb-5 mx-auto cursor-pointer transition duration-300 ease-in-out transform group-hover:scale-105 rounded-lg" alt="Imagem 9">
         </div>
         <div class="group">
-          <img src="@/assets/images/image26.png" style="width: 200px; height: 250px;" class="mb-5 mx-auto cursor-pointer transition duration-300 ease-in-out transform group-hover:scale-105 rounded-lg" alt="Imagem 10">
+          <img src="/images/image26.png" style="width: 200px; height: 250px;" class="mb-5 mx-auto cursor-pointer transition duration-300 ease-in-out transform group-hover:scale-105 rounded-lg" alt="Imagem 10">
         </div>
         <div class="group">
-          <img src="@/assets/images/image27.png" style="width: 200px; height: 250px;" class="mb-5 mx-auto cursor-pointer transition duration-300 ease-in-out transform group-hover:scale-105 rounded-lg" alt="Imagem 11">
+          <img src="/images/image27.png" style="width: 200px; height: 250px;" class="mb-5 mx-auto cursor-pointer transition duration-300 ease-in-out transform group-hover:scale-105 rounded-lg" alt="Imagem 11">
         </div>
       </div>
     </div>
@@ -39,7 +39,7 @@
       </div>
       <div class="w-full md:w-1/2 flex justify-center">
         <div class="mx-auto max-w-screen-lg">
-          <img src="@/assets/images/image12.png" class="w-64 md:w-96 h-auto rounded-lg" alt="Imagem 12">
+          <img src="/images/image12.png" class="w-64 md:w-96 h-auto rounded-lg" alt="Imagem 12">
         </div>
       </div>
     </div>

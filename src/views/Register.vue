@@ -34,21 +34,21 @@ function register() {
         <div class="w-full lg:w-7/12 mx-auto bg-white flex flex-col items-center">
             <h1 class="text-gray-900 text-3xl font-poppins font-bold mt-10 lg:mt-20 text-center lg:text-left">Preencha os seus dados</h1>
             <div class="my-11">
-                <Socials :color-symbols="'#000000'"/>
+                <Socials color-symbols="#000000"/>
             </div>
             <form @submit.prevent="register" class="flex flex-col items-center h-full">
                 <div class="w-full lg:w-[120%]"> 
-                <Field :placeholder="'Nome de utilizador'" class="w-full" v-model="username">
+                <Field placeholder='Nome de utilizador' autocomplete="username" class="w-full" v-model="username">
                 <template #icon>
                   <IPerson/>
                 </template>
                 </Field>
-                <Field :placeholder="'E-mail'" class="w-full" v-model="email">
+                <Field placeholder='E-mail' autocomplete="email" class="w-full" v-model="email">
                 <template #icon>
                   <IMail/>
                 </template>
                 </Field>
-                <Field :placeholder="'Senha'" class="w-full" v-model="password">
+                <Field placeholder='Senha' type="password" autocomplete="new-password" class="w-full" v-model="password">
                 <template #icon>
                 </template>
                 </Field>

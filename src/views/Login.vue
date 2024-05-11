@@ -67,12 +67,12 @@ function login() {
             <Socials :color-symbols="'#000000'"/>
           </div>
           <form @submit.prevent="login" class="flex flex-col items-center h-full">
-            <Field class="w-full lg:w-[120%]" :placeholder="'Nome de utilizador'" v-model="username">
+            <Field class="w-full lg:w-[120%]" placeholder="Nome de utilizador" autocomplete="username" v-model="username">
               <template #icon>
                 <IPerson/>
               </template>
             </Field>
-            <Field class="w-full lg:w-[120%]" :placeholder="'Senha'" v-model="password">
+            <Field class="w-full lg:w-[120%]" type="password" placeholder="Senha" autocomplete="current-password" v-model="password">
               <template #icon>
               </template>
             </Field>

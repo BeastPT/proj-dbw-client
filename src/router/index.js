@@ -13,9 +13,24 @@ const router = createRouter({
           component: () => import('../views/Home.vue')
         },
         {
+          path: 'reclamacoes',
+          name: 'reclamacoes',
+          component: () => import('../views/Obter_ajuda.vue')
+        },
+        {
+          path: 'lifestyle',
+          name: 'lifestyle',
+          component: () => import('../views/Estilo_vida.vue')
+        },
+        {
           path: 'about',
           name: 'about',
           component: () => import('../views/AboutUs.vue')
+        },
+        {
+          path: 'privacy',
+          name: 'privacy',
+          component: () => import('../views/Privacy.vue')
         },
         {
           path: '/services/:id',

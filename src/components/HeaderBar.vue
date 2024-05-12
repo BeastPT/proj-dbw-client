@@ -7,9 +7,8 @@
             <img src="/images/skillswap.png" alt="Logo" class="h-16">
           </RouterLink>
         </button>
-
-        <div class="hidden md:flex items-center justify-end w-full md:w-auto">
-          <ul class="flex space-x-12">
+        <div class="hidden md:flex justify-end w-full md:w-auto">
+          <ul class="hidden md:flex justify-end w-full md:w-auto space-x-4 md:space-x-8 lg:space-x-10 xl:space-x-12">
             <RouterLink to="/">
               <li class="text-xl font-bold text-gray-100 hover:text-indigo-400">Home</li>
             </RouterLink>
@@ -23,6 +22,8 @@
               <li class="text-xl font-bold text-gray-100 hover:text-indigo-400">Comunidade</li>
             </RouterLink>
           </ul>
+        
+          
 
           <template v-if="!loggedIn">
             <button @click="register" type="button"
@@ -68,7 +69,7 @@
       <ul
         :class="showMenu ? 'flex flex-col items-center' : 'hidden md:flex md:flex-row md:items-center md:space-x-10 md:mt-0'"
         class="mt-8 space-y-4">
-        <RouterLink to="/home">
+        <RouterLink to="/">
           <li class="text-xl font-bold text-gray-100 hover:text-indigo-400 md:hidden">Home</li>
         </RouterLink>
         <RouterLink to="/about">

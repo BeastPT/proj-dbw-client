@@ -1,5 +1,6 @@
+
 <template>
-  <div class="ml-4 mr-4 md:ml-8 md:mr-8 lg:ml-24 lg:mr-24">
+  <div class="ml-4 mr-4 md:ml-8 md:mr-8 lg:ml-24 lg:mr-24 xl:ml-32 xl:mr-32">
     <div class="bg-gradient-to-b from-gray-900 to-blue-900 w-full p-10 mb-8 rounded-b-lg shadow-lg">
       <div class="text-center lg:text-left">
         <h2 class="font-bold text-4xl text-white mb-4">Torna-te um Freelancer de sucesso</h2>
@@ -52,15 +53,19 @@
     </div>
 
     <!-- ########## CATEGORIAS DO SITE ########## -->
-    <div class="mt-8 font-bold text-center text-3xl mb-10">Categorias</div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 ml-4 md:ml-0 md:mr-0 md:ml-auto md:mr-auto md:max-w-screen-lg">
-      <button class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md">Mercado Financeiro</button>
-      <button class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md"> Programação</button>
-      <button class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md">Tradução de Línguas</button>
-      <button class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md ">Aprendizagem</button>
-      <button class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md ">Fitness</button>
-      <button class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md ">Escrita</button>
+
+    <div>
+      <div class="mt-8 font-bold text-center text-3xl mb-10">Categorias</div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 ml-4 md:ml-0 md:mr-0 md:ml-auto md:mr-auto md:max-w-screen-lg justify-center text-center">
+        <router-link to="/services/market" class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md">Mercado Financeiro</router-link>
+        <router-link to="/services/programming" class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md">Programação</router-link>
+        <router-link to="/services/translation" class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md">Tradução de Línguas</router-link>
+        <router-link to="/services/learning" class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md">Aprendizagem</router-link>
+        <router-link to="/services/fitness" class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md">Fitness</router-link>
+        <router-link to="/services/writing" class="btn bg-gray-900 text-white p-10 font-bold text-xl rounded-md">Escrita</router-link>
+      </div>
     </div>
+    
 
 
     <!-- ########## TORNA-TE UM FREELANCER ########## -->
@@ -149,3 +154,4 @@
   }
 }
 </style>
+

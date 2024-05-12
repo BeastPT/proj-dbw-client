@@ -57,16 +57,15 @@
 
 
     <!-- ########## TORNA-TE UM FREELANCER ########## -->
-    <div>
-      <h1 class="font-bold text-3xl text-center p-10">Torna-te um Comprador</h1>
+    <div class="mt-12">
       <div class="border-l-4 border-r-4 border-gray-500 rounded-lg p-6 mb-10">
-        <p class="font-bold text-xl mb-4">Desperte seu Potencial: Torne-se um Freelancer de Sucesso!</p>
-        <p class="mb-4">No universo do freelancing, as possibilidades são tão vastas quanto sua imaginação. Ao escolher este caminho, você não apenas assume o controle de sua carreira, mas também desencadeia uma jornada de descobertas e realizações. A liberdade de trabalhar de qualquer lugar, a flexibilidade de definir seus próprios horários e a oportunidade de mergulhar em projetos apaixonantes são apenas o começo.</p>
-        <p class="mb-4">Cada tarefa é uma chance de expandir suas habilidades, enfrentar desafios inovadores e aprender continuamente. A independência financeira se torna uma realidade, permitindo que você estabeleça seu próprio valor e alcance novos patamares. Mas não é só isso; ao se tornar um freelancer, você ingressa em uma comunidade vibrante, conectando-se com mentes criativas, compartilhando experiências e construindo uma rede que impulsionará seu crescimento.</p>
-        <p class="mb-4">O mundo do freelancing aguarda, repleto de oportunidades que só você pode explorar. Então, dê o primeiro passo rumo ao sucesso profissional e liberdade criativa. Abrace a jornada do freelancing – onde a paixão encontra a independência, e seu potencial é verdadeiramente ilimitado!</p>
-        <div class="flex justify-center">
-          <button class="btn bg-gray-900 text-white py-2 px-6 font-bold rounded-md">Torna-te um Comprador</button>
-        </div>
+        <p class="font-bold text-xl mb-4">Liberta o teu Potencial com o nosso Freelancer IA!</p>
+            <p>Você já sonhou em levar a sua carreira de freelancer para o próximo nível? Com nosso serviço de freelancer IA, essa visão pode tornar-se uma realidade!</p>
+            <p>Ao integrar a inteligência artificial em cada etapa do processo de trabalho, oferecemos uma abordagem inovadora que não só aumenta sua produtividade, mas também amplifica sua criatividade e eficiência.</p>
+            <p>A nossa plataforma de freelancer IA não apenas automatiza tarefas rotineiras, como também fornece insights inteligentes e sugestões perspicazes para aprimorar as suas habilidades e tomar decisões estratégicas.</p>
+            <p>Imagine ter um assistente virtual sempre pronto para ajudar, fornecendo análises de mercado, identificando tendências emergentes e até mesmo sugerindo oportunidades de projetos que correspondam às suas habilidades e interesses.</p>
+            <p>Com o nosso freelancer IA, você experimentará uma nova dimensão de liberdade criativa e sucesso profissional. Diga adeus às horas desperdiçadas em tarefas administrativas e dê as boas-vindas a uma jornada de trabalho mais eficiente, gratificante e lucrativa.</p>
+            <p>Então, porquê se contentar com o ordinário quando você pode alcançar o extraordinário com nosso Freelancer IA? Liberte o seu potencial hoje mesmo e deixe a inteligência artificial impulsionar a sua carreira freelancing para novos patamares de sucesso!</p>
       </div>
     </div>
   </div>

@@ -52,7 +52,7 @@
                           d="M4 6h16M4 12h16m-7 6h7"></path>
                       </svg>
                     </button>
-                    <p v-if="isChatLoaded" class="ml-2"><strong>IA Chat -</strong> Inglês</p>
+                    <p v-if="isChatLoaded" class="ml-2"><strong>IA Chat -</strong> {{chatsubject}}</p>
                     <p v-else class="ml-2 font-bold">Selecione um Chat</p>
                   </div>
                   <div v-if="isChatLoaded" class="flex flex-col h-full overflow-x-auto mb-4" ref="messageContainer">
@@ -120,7 +120,7 @@ const messageContainer = ref(null)
 const msg = ref('')
 const messages = ref([])
 const chatOptions = ref()
-
+const chatsubject = ref('')
 const BASE_URL = "http://localhost:3001/api/";
 
 await loadChats();
@@ -148,8 +148,9 @@ async function loadMessages() {
       return chatNotFound.value = true;
     }
 
-    const data = (await response.json()).message
-    messages.value = data;
+    const data = (await response.json())
+    messages.value = data.message;
+    chatsubject.value = data.subject;
     isChatLoaded.value = true;
   } catch (error) {
     chatNotFound.value = true;

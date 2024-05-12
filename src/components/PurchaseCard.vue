@@ -19,7 +19,7 @@
     <div class="w-full sm:w-full md:w-1/2 lg:w-1/3 mb-8 bg-gray-300 p-2 md:p-3 lg:p-4 rounded-lg">
       <h2 class="text-lg font-semibold mb-3">Estado</h2>
       <p>Estado: {{ rightStatus }}</p>
-      <p>Entrega final: {{ rightDeliveryDate }}</p>
+      <p>Última Modificação: {{ rightDeliveryDate }}</p>
     </div>
   </div>
 </template>

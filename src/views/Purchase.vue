@@ -1,5 +1,10 @@
 <template>
-  <div class="flex justify-center sm:flex-wrap p-4">
+  <div v-if="servicesnotfound">
+    <div class="flex flex-col h-full justify-center items-center">
+      <p class="text-lg font-bold">Serviços não encontrados</p>
+    </div>
+  </div>
+  <div v-else class="flex justify-center sm:flex-wrap p-4">
     <div class="text-center font-semibold mr-4 text-xl mb-4 sm:w-auto sm:flex-shrink-0 sm:mr-4 md:text-2xl md:mb-0">
       <button class="hover:underline text-gray-900 ml-2">Perfil</button>
     </div>
@@ -25,17 +30,56 @@
 <script setup>
 import { ref } from 'vue';
 import PurchaseCard from '@/components/PurchaseCard.vue';
+import userStore from '@/store/user.js';
+import { storeToRefs } from 'pinia';
+import { useRouter } from 'vue-router';
 
-const users = ref([
-  {
-    Title: 'Tradução de texto de inglês para português',
-    Id: '123ABC',
-    Value: '75€',
-    OrderDate: '12/02/2024',
-    rightDeliveryDate: '15/02/2024',
-    Status: 'active',
-  },
-]);
+const router = useRouter();
+const { token } = storeToRefs(userStore());
+const BASE_URL = "http://localhost:3001/api/";
+const servicesnotfound = ref();
+
+const users = ref([]);
+
+try {
+  const response = await fetch(`${BASE_URL}service/list`, {
+    headers: {
+      'authorization': token.value
+    }
+  })
+
+  if (!response.ok) {
+    servicesnotfound.value = true
+  }
+
+  const output = (await response.json()).message;
+  users.value = output.map((e) => {
+    console.log(e)
+    return {
+      Title: e.subject || 'Unknown', //falta
+
+
+      Id: e._id,
+      Value: e.price,
+      OrderDate: formatDate(e.createdAt),
+      rightDeliveryDate: formatDate(e.updatedAt),
+      Status: e.state,
+    }}
+  )
+
+} catch (error) {
+  console.log(error)
+  router.push('/user/profile')
+}
+
+function formatDate(date){
+  return new Date(date).toLocaleDateString('pt-PT', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+}
+
 </script>
 
 <style scoped>

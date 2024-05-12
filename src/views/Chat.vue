@@ -55,7 +55,7 @@
                     <p v-if="isChatLoaded" class="ml-2"><strong>IA Chat -</strong> Inglês</p>
                     <p v-else class="ml-2 font-bold">Selecione um Chat</p>
                   </div>
-                  <div v-if="isChatLoaded" class="flex flex-col h-full overflow-x-auto mb-4">
+                  <div v-if="isChatLoaded" class="flex flex-col h-full overflow-x-auto mb-4" ref="messageContainer">
                     <div class="flex flex-col h-full">
                       <div class="grid grid-cols-12 gap-y-2">
 
@@ -115,8 +115,10 @@ const chatNotFound = ref(false);
 const showMenu = ref(false);
 const windowWidth = ref(window.innerWidth);
 
+const messageContainer = ref(null)
+
 const msg = ref('')
-const messages = ref()
+const messages = ref([])
 const chatOptions = ref()
 
 const BASE_URL = "http://localhost:3001/api/";
@@ -131,6 +133,7 @@ watch(() => route.params.id, async (id) => {
   chatNotFound.value = false
   if (id) {
     await loadMessages();
+    scrollToBottom()
   }
 })
 
@@ -189,7 +192,7 @@ async function sendMessage(){
   }
   messages.value.push(message)
   msg.value = ''
-
+  scrollToBottom()
   try {
     const response = await fetch(`${BASE_URL}chat/${route.params.id}/addMessage`, {
       method: 'POST',
@@ -207,9 +210,10 @@ async function sendMessage(){
       text: data.answer,
       isUser: false
     })
+    scrollToBottom()
   } catch (error) {
     chatNotFound.value = true;
-    console.log('errror')
+    console.log('error')
   }
 }
 
@@ -224,11 +228,20 @@ const handleResize = () => {
   }
 };
 
+function scrollToBottom() {
+  if (messageContainer.value) {
+    requestAnimationFrame(() => {
+      messageContainer.value.scrollTop = messageContainer.value.scrollHeight;
+    });
+  }
+}
+
 onMounted(() => {
   if (windowWidth.value > 640) {
     showMenu.value = false;
   }
   window.addEventListener('resize', handleResize);
+  scrollToBottom()
 });
 
 onBeforeUnmount(() => {

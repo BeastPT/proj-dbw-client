@@ -42,16 +42,19 @@ const rightStatus = ref('')
 switch (props.Status){
   case 'active':
     rightStatus.value = 'Ativo'
+    imageSrc.value = '/images/yellow.png'
     break
   case 'finished':
     rightStatus.value = 'Concluído'
-    imageSrc.value = '/images/image24.png'
+    imageSrc.value = '/images/green.png'
     break
   case 'cancelled':
     rightStatus.value = 'Cancelado'
+    imageSrc.value = '/images/red.png'
     break
   default:
     rightStatus.value = 'Desconhecido'
+    imageSrc.value = '/images/red.png'
     break
 }
 

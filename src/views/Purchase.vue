@@ -16,8 +16,8 @@
   </div>
 
   <div>
-    <PurchaseCard v-for="(user, index) in users" :key="index" :Title="user.Title"
-      :Id="user.Id" :Value="user.Value" :OrderDate="user.OrderDate":rightDeliveryDate="user.rightDeliveryDate" :Status="user.Status"/>
+    <PurchaseCard v-for="(user, index) in users" :key="index" :Title="user.Title" :Id="user.Id" :Value="user.Value"
+      :OrderDate="user.OrderDate" :rightDeliveryDate="user.rightDeliveryDate" :Status="user.Status" />
   </div>
 </template>
 

@@ -18,12 +18,7 @@ const router = createRouter({
           component: () => import('../views/AboutUs.vue')
         },
         {
-          path: '/test',
-          name: 'test',
-          component: () => import('../views/Product.vue')
-        },
-        {
-          path: '/produto/:id',
+          path: '/services/:id',
           name: 'product',
           component: () => import('../views/Product.vue')
         },
@@ -51,6 +46,11 @@ const router = createRouter({
         {
           path: 'chat',
           name: 'chat',
+          component: () => import('../views/Chat.vue')
+        },
+        {
+          path: 'chat/:id',
+          name: 'chatid',
           component: () => import('../views/Chat.vue')
         },
         {
@@ -85,7 +85,7 @@ const router = createRouter({
 })
 
 import userStore from '@/store/user.js'
-const needsAuth = ['profile', 'purchase', 'purchase']
+const needsAuth = ['profile', 'purchase', 'chat', 'chatid']
 router.beforeEach((to, from) => {
   const userSt = userStore()
   if ( (to.name == 'login' || to.name == 'register') && userSt.token) {

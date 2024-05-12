@@ -11,66 +11,42 @@
     </div>
   </div>
 
-  <div class="message text-xl font-semibold mb-6 underline mx-8 md:mx-16"> 
+  <div class="message text-xl font-semibold mb-6 underline mx-8 md:mx-16">
     <p class="text-center">As minhas compras</p>
   </div>
 
   <div>
-    <Retangulos
-      v-for="(user, index) in users"
-      :key="index"
-      :Title="user.Title"
-      :Name="user.Name"
-      :ProjectCode="user.ProjectCode"
-      :Value="user.Value"
-      :OrderDate="user.OrderDate"
-      :rightTitle="user.rightTitle"
-      :rightStatus="user.rightStatus"
-      :rightDeliveryDate="user.rightDeliveryDate"
-      :imageSrc="user.imageSrc"
-      :imageAlt="user.imageAlt"
-    />
-  </div>      
+    <PurchaseCard v-for="(user, index) in users" :key="index" :Title="user.Title"
+      :Id="user.Id" :Value="user.Value" :OrderDate="user.OrderDate":rightDeliveryDate="user.rightDeliveryDate" :Status="user.Status"/>
+  </div>
 </template>
 
 
-<script>
-import Retangulos from '@/components/Retangulos.vue';
+<script setup>
+import { ref } from 'vue';
+import PurchaseCard from '@/components/PurchaseCard.vue';
 
-export default {
-  components: {
-    Retangulos
+const users = ref([
+  {
+    Title: 'Tradução de texto de inglês para português',
+    Id: '123ABC',
+    Value: '75€',
+    OrderDate: '12/02/2024',
+    rightDeliveryDate: '15/02/2024',
+    Status: 'active',
   },
-  data() {
-    return {
-      users: [
-        {
-          Title: 'Tradução de texto de inglês para português',
-          Name: 'Margarida Ferreira',
-          ProjectCode: '123ABC',
-          Value: '75€',
-          OrderDate: '12/02/2024',
-          rightTitle: 'Estado',
-          rightStatus: 'Concluído',
-          rightDeliveryDate: '15/02/2024',
-          imageSrc: '/images/image24.png',
-          imageAlt: 'Logo1'
-        },
-      ]
-    };
-  }
-}
+]);
 </script>
 
 <style scoped>
 @media (max-width: 1023px) {
-.flex {
-  flex-direction: column;
-  align-items: center;
-}
-.flex > div {
-  margin-bottom: 1rem;
-}
+  .flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flex>div {
+    margin-bottom: 1rem;
+  }
 }
 </style>
-

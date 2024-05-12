@@ -3,7 +3,9 @@
       <nav class="container px-6 py-16 mx-auto md:flex md:justify-between md:items-center">
         <div class="flex items-center justify-between w-full">
           <button class="text-xl font-bold text-gray-100 md:text-2xl hover:text-indigo-400">
-            <img src="/images/skillswap.png" alt="Logo" class="h-16">
+            <RouterLink to="/">
+              <img src="/images/skillswap.png" alt="Logo" class="h-16">
+            </RouterLink>
           </button>
           
           <div class="hidden md:flex items-center justify-end w-full md:w-auto"> 

@@ -18,7 +18,7 @@ export default defineStore('user', {
                     body: JSON.stringify({ username, password }),
                 });
                 if (user.status !== 200) {
-                    throw new Error("Invalid credentials");
+                    throw new Error((await user.json()).message)
                 }
 
                 const data = await user.json();
@@ -27,7 +27,6 @@ export default defineStore('user', {
                 this.user = data.user;
                 localStorage.setItem('user', JSON.stringify(this.user));
             } catch (error) {
-                console.log(error);
                 throw error;
             }
         },
@@ -47,16 +46,15 @@ export default defineStore('user', {
                     body: JSON.stringify({ email, username, password }),
                 });
                 if (user.status == 400) {
-                    throw new Error("Wrong");
+                    throw new Error((await user.json()).message)
                 }
 
                 const data = await user.json();
                 this.token = data.token;
-                localStorage.setItem('token', JSON.stringify(token));
+                localStorage.setItem('token', JSON.stringify(this.token));
                 this.user = data.user;
-                localStorage.setItem('user', JSON.stringify(user));
+                localStorage.setItem('user', JSON.stringify(this.user));
             } catch (error) {
-                console.log(error);
                 throw error;
             }
         },

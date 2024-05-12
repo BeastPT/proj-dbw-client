@@ -1,17 +1,17 @@
 <template>
-  <div class="flex items-center justify-center h-screen">
+  <div class="flex items-center justify-center">
     <button @click="isOpen = true" class="bg-gray-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
       Alterar Foto de Perfil
     </button>
 
     <div v-if="isOpen" class="fixed z-10 inset-0 overflow-y-auto">
-      <div class="flex items-center justify-center h-full">
+      <div class="flex items-center justify-center">
         <div class="fixed inset-0 bg-black opacity-50"></div>
         
-        <div class="z-20 bg-white rounded-lg overflow-hidden shadow-xl max-w-lg w-full mx-auto p-6">
-          <div class="mb-4">
+        <div class="z-20 bg-white rounded-lg overflow-hidden shadow-xl max-w-lg w-full mx-auto p-6 text-left">
+          <div class="mb-4 flex justify-between items-center">
             <span class="font-bold">Alterar Foto de Perfil</span>
-            <button @click="closeModal" class="float-right text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800">
+            <button @click="closeModal" class="text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800">
               Fechar
             </button>
           </div>

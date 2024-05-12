@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class=" md:text-right md:mb-0 md:ml-auto md:mr-4">
-        <button class="bg-gray-900 text-white px-3 py-2 rounded">Alterar foto de perfil</button>
+        <Popup/>
       </div>
       <button @click="logout" class="bg-gray-900 text-white px-3 py-2 rounded hover:bg-gray-800 mt-4 md:mt-0">Sair da Sessão</button>
     </div>
@@ -115,6 +115,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import userStore from '@/store/user.js'
+import Popup from '@/components/Popup.vue';
 const router = useRouter()
 const isLoaded = ref(false)
 const fullnameh = ref()

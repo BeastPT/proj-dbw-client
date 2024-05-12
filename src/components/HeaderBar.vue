@@ -10,7 +10,7 @@
           
           <div class="hidden md:flex items-center justify-end w-full md:w-auto"> 
             <ul class="flex space-x-12">
-              <RouterLink to="/"><li class="text-xl font-bold text-gray-100 hover:text-indigo-400">Home</li></RouterLink>
+              <RouterLink to="/home"><li class="text-xl font-bold text-gray-100 hover:text-indigo-400">Home</li></RouterLink>
               <RouterLink to="/about"><li class="text-xl font-bold text-gray-100 hover:text-indigo-400">About Us</li></RouterLink>
               <RouterLink to="/chat"><li class="text-xl font-bold text-gray-100 hover:text-indigo-400">Chat</li></RouterLink>
               <RouterLink to="/community"><li class="text-xl font-bold text-gray-100 hover:text-indigo-400">Comunidade</li></RouterLink>
@@ -52,7 +52,7 @@
           </div>
         </div>
         <ul :class="showMenu ? 'flex flex-col items-center' : 'hidden md:flex md:flex-row md:items-center md:space-x-10 md:mt-0'" class="mt-8 space-y-4">
-          <RouterLink to="/"><li class="text-xl font-bold text-gray-100 hover:text-indigo-400 md:hidden">Home</li></RouterLink>
+          <RouterLink to="/home"><li class="text-xl font-bold text-gray-100 hover:text-indigo-400 md:hidden">Home</li></RouterLink>
           <RouterLink to="/about"><li class="text-xl font-bold text-gray-100 hover:text-indigo-400 md:hidden">About Us</li></RouterLink>
           <RouterLink to="/chat"><li class="text-xl font-bold text-gray-100 hover:text-indigo-400 md:hidden">Chat</li></RouterLink>
           <RouterLink to="/community"><li class="text-xl font-bold text-gray-100 hover:text-indigo-400 md:hidden">Comunidade</li></RouterLink>

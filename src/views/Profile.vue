@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!isLoaded || !userSt.user"></div>
+  <div v-if="!isLoaded || !user"></div>
   <div v-else class="mx-auto md:mx-4">
     <!-- #####################  PARTE DE CIMA ####################-->
     <div class="text-center font-semibold mb-10 text-2xl p-4">
@@ -100,7 +100,7 @@
           <input type="password" id="confirm_password" name="confirm_password" v-model="updatePasswordData.confirm" class="mb-4 w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui" autocomplete="new-password">
         </div>
 
-        <input type="hidden" id="username" name="username" :value="userSt.user.username">
+        <input type="hidden" id="username" name="username" :value="user.username">
 
         <!-- Botão de envio -->
         <div class="button-container">
@@ -112,20 +112,28 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia';
 import userStore from '@/store/user.js'
-import Popup from '@/components/Popup.vue';
+const userSt = userStore()
+const { token, user } = storeToRefs(userSt)
+
+import Popup from '@/components/PopupProfile.vue';
 const router = useRouter()
 const isLoaded = ref(false)
 const fullnameh = ref()
 const yearjoined = ref()
 const userData = ref()
-const userSt = userStore()
-if (!userSt.token || !userSt.user) {
+
+if (!token || !user) {
   router.push('/login')
 }
-const imgUrl = ref(userSt.user?.image_url || '/images/img_avatar.png')
+const imgUrl = ref(user.value.image_url || '/images/img_avatar.png')
+
+watch(()=> user, () => {
+  imgUrl.value = user.value.image_url || '/images/img_avatar.png';
+}, { deep: true });
 
 const formdata = ref({
   fullname: '',
@@ -148,9 +156,9 @@ let dataObj = {}
 
 const BASE_URL = "http://localhost:3001/api/";
 try {
-  const response = await fetch(`${BASE_URL}user/${userSt.user._id}`, {
+  const response = await fetch(`${BASE_URL}user/${user.value._id}`, {
     headers: {
-      'authorization': userSt.token
+      'authorization': token.value
     }
   })
   if (!response.ok) {
@@ -169,10 +177,10 @@ try {
 
 async function changeData() {
   try {
-    const response = await fetch(`${BASE_URL}user/${userSt.user._id}/edit`, {
+    const response = await fetch(`${BASE_URL}user/${user.value._id}/edit`, {
       method: 'POST',
       headers: {
-        "authorization": userSt.token,
+        "authorization": token.value,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formdata.value),

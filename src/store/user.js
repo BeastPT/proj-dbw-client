@@ -75,6 +75,27 @@ export default defineStore('user', {
                 console.log(error);
                 throw error;
             }
+        },
+        async updateImage(image) {
+            try {
+                const response = await fetch(`${BASE_URL}user/${this.user._id}/edit`, {
+                    method: 'POST',
+                    headers: {
+                        "authorization": this.token,
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        image_url: image,
+                    }),
+                })
+                if (!response.ok) {
+                    return { error: (await response.json()).message }
+                }
+                this.user.image_url = image
+                return { success: true }
+            } catch (error) {
+                return { error: (await response.json()).message }
+            }
         }
     },
 })

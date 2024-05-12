@@ -2,12 +2,10 @@
   <div class="bg-gray-900 w-full flex flex-col text-white">
     <div class="flex flex-col lg:flex-row justify-between mx-4 lg:mx-48 mt-8 lg:mt-12">
       <div v-for="(column, index) in columns" :key="index" class="flex flex-col mt-4 lg:mt-0 lg:mr-8">
-        <button @click="navigateToColumn(column.route)" class="text-xl font-bold text-center lg:flex">{{ column.title }}<button @click="toggleShow(index)" class="text-zinc-400 ml-2 lg:hidden">{{ show[index] ? '⭡' : '↓' }}</button></button>
+        <h3 class="text-xl font-bold text-center lg:flex">{{ column.title }}<button @click="toggleShow(index)" class="text-zinc-400 ml-2 lg:hidden">{{ show[index] ? '⭡' : '↓' }}</button></h3>
         <nav class="mt-4 lg:mt-6 text-zinc-400 text-xl font-semibold">
           <ul>
-            <li v-for="(category, categoryIndex) in column.categories" :key="categoryIndex" :class="{ 'hidden lg:flex': !show[index], 'text-center lg:flex show-small': show[index] }">
-              <button @click="navigateToCategory(column.route, category)">{{ category }}</button>
-            </li>
+            <li v-for="(category, categoryIndex) in column.categories" :key="categoryIndex" :class="{ 'hidden lg:flex': !show[index], 'text-center lg:flex show-small': show[index] }">{{ category }}</li>
             <li v-show="show[index]" class="hidden lg:flex">Outros itens...</li>
           </ul>
         </nav>
@@ -29,30 +27,23 @@
 <script setup>
 import Socials from './Socials.vue';
 import { ref } from 'vue';
-import { useRouter } from 'vue-router'; 
-
-const router = useRouter();
 
 const columns = ref([
   {
     title: 'Categorias',
-    route: 'product',
     categories: ['Mercado Financeiro', 'Programação', 'Tradução', 'Aprendizagem', 'Fitness']
   },
   {
     title: 'Obter Ajuda',
-    route: 'support',
     categories: ['Estado do pedido', 'Devoluções', 'Contacta-nos', 'Livro de Reclamações']
   },
   {
     title: 'About Us',
-    route: 'about',
     categories: ['Estado de Notícias', 'Estilo de vida']
   },
   {
     title: 'Comunidade',
-    route: 'community',
-    categories: ['Eventos']
+    categories: ['Eventos', 'Tornar-te vendedor']
   }
 ]);
 
@@ -66,15 +57,6 @@ const toggleShow = (index) => {
     });
   }
 }
-
-const navigateToCategory = (route, category) => {
-  router.push(`/${route}/${category.replace(/\s+/g, '_').toLowerCase()}`);
-}
-
-const navigateToColumn = (route) => {
-  router.push(`/${route}`);
-}
-
 </script>
 
 <style scoped>

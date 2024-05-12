@@ -1,11 +1,12 @@
 <template>
-  <div class="ml-4 mr-4 md:ml-8 md:mr-8 lg:ml-24 lg:mr-24 xl:ml-32 xl:mr-32 xxl:ml-48 xxl:mr-48">
-    <div class="bg-gray-950 w-full p-10 mb-8">
-      <div class="text-left">
-        <h2 class="font-bold text-3xl text-white mb-5">Torna-te um Freelancer <br> de sucesso</h2>
-        <p class="text-white">Conectando Talentos, Trocando Habilidades: <br> SKILLswap, onde as oportunidades se <br> encontram</p>
+  <div class="ml-4 mr-4 md:ml-8 md:mr-8 lg:ml-24 lg:mr-24">
+    <div class="bg-gradient-to-b from-gray-900 to-blue-900 w-full p-10 mb-8 rounded-b-lg shadow-lg">
+      <div class="text-center lg:text-left">
+        <h2 class="font-bold text-4xl text-white mb-4">Torna-te um Freelancer de sucesso</h2>
+        <p class="text-white mb-6">Conectando Talentos, Trocando Habilidades: <br> SKILLswap, onde as oportunidades se encontram</p>
       </div>
     </div>
+    
 
     <!-- ########## COLOCAR AS 3 IMAGENS PRINCIPAIS  ########## -->
     <div class="text-center">

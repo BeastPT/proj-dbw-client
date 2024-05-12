@@ -10,7 +10,7 @@
 
         <div class="hidden md:flex items-center justify-end w-full md:w-auto">
           <ul class="flex space-x-12">
-            <RouterLink to="/home">
+            <RouterLink to="/">
               <li class="text-xl font-bold text-gray-100 hover:text-indigo-400">Home</li>
             </RouterLink>
             <RouterLink to="/about">

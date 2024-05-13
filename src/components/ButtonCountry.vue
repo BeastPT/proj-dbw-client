@@ -1,6 +1,7 @@
 <template>
   <button class="button-container">
     <img :src="`/images/${image}`" :alt="altText" class="image-container">
+    <!-- Nome -->
     <p class="font-semibold text-left">{{ countryName }}</p>
   </button>
 </template>
@@ -26,6 +27,7 @@ export default {
   transition: transform 0.3s;
 }
 
+ /* Efeito de escala ao passar o rato */
 .button-container:hover {
   transform: scale(1.05);
 }
@@ -38,6 +40,7 @@ export default {
   border-radius: 10px;
 }
 
+/* Ajuste de largura da imagem para telas mais pequenas */
 @media screen and (max-width: 768px) {
   .image-container {
     width: 80%;

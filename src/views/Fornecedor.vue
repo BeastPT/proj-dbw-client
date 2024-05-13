@@ -2,7 +2,7 @@
   <div class="fornecedor-titulo text-center">
     <h1 class="font-bold text-3xl mb-8 p-4">Sobre os Freelancers</h1>
   </div>
-
+   <!-- Todo o texto da pagina colocado de forma responsiva tambem -->
   <div class="ml-4 mr-4 md:ml-8 md:mr-8 lg:ml-24 lg:mr-24 xl:ml-32 xl:mr-32 xxl:ml-48 xxl:mr-48">
     <p class="font-semibold mb-8">
       Na SkillSwap, orgulhamo-nos da nossa equipa diversificada e altamente talentosa de freelancers, cada um trazendo

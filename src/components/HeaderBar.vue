@@ -4,6 +4,7 @@
       <div class="flex items-center justify-between w-full">
         <RouterLink to="/"><img src="/images/skillswap.png" alt="Logo" class="h-16"></RouterLink>
 
+         <!-- Telas grandes -->
         <div class="hidden lg:flex items-center justify-end w-full lg:w-auto">
           <ul class="hidden lg:flex justify-end w-full md:w-auto space-x-4 md:space-x-8 lg:space-x-8 xl:space-x-8">
             <RouterLink to="/">
@@ -20,6 +21,7 @@
             </RouterLink>
           </ul>
 
+          <!-- Botões de registro e login ou avatar do usuário -->
           <template v-if="!loggedIn">
             <button @click="register" type="button"
               class="ml-6 text-lg lg:text-xl font-semibold text-gray-100 hover:text-gray-400 focus:outline-none focus:text-gray-400">
@@ -33,8 +35,9 @@
               <img :src="imgUrl" alt="Avatar" class="h-10 w-10 rounded-full">
             </RouterLink>
           </template>
-
         </div>
+
+        <!-- Navegação principal em telas pequenas -->
         <div class="flex lg:hidden justify-between">
           <button @click="toggleNav" type="button"
             class="text-gray-100 hover:text-gray-400 focus:outline-none focus:text-gray-400 mr-4">
@@ -112,6 +115,7 @@ const register = () => {
 </script>
 
 <style>
+/* Estilos para o botao de login */
 .login-btn {
   border: 2px solid white;
   border-radius: 0.25rem;
@@ -123,6 +127,7 @@ const register = () => {
   transition: background-color 0.3s ease-in-out;
 }
 
+/* Efeito de passar por cima para o botao de login */
 .login-btn:hover {
   background-color: lightblue;
 }

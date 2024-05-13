@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'ProductUnavailable'
+  name: 'ProductUnavailable' // Define o nome do componente
 }
 </script>
 

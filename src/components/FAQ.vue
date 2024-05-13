@@ -6,15 +6,18 @@
         <div @click="toggleAccordion(index)"
           class="flex justify-between items-center cursor-pointer bg-gray-200 rounded-md p-4">
           <h2 class="font-semibold">{{ faq.question }}</h2>
+           <!-- Ícone de seta  -->
           <svg v-if="isActive !== index" class="w-6 h-6 fill-current text-gray-500" xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24">
             <path d="M12 15.535L18.364 9h-3.258v-6h-8v6h-3.258z" />
           </svg>
+           <!-- Ícone de outra seta  -->
           <svg v-else class="w-6 h-6 fill-current text-gray-500 transform rotate-180" xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24">
             <path d="M12 15.535L18.364 9h-3.258v-6h-8v6h-3.258z" />
           </svg>
         </div>
+        <!-- Resposta da pergunta, visível quando for ativada -->
         <div v-if="isActive === index" class="bg-white rounded-md p-4">
           <p>{{ faq.answer }}</p>
         </div>
@@ -31,8 +34,10 @@ const props = defineProps({
   faqs: Array
 });
 
+// Variável para controlar qual pergunta expandida
 const isActive = ref(null);
 
+// Função para alternar a expansão
 const toggleAccordion = (index) => {
   isActive.value = (isActive.value === index) ? null : index;
 };

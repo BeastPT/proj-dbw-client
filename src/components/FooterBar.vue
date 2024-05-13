@@ -3,6 +3,8 @@ import Socials from './Socials.vue';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
+
+// Define os dados das colunas do footer
 const columns = ref([
   {
     title: 'Categorias',
@@ -33,8 +35,10 @@ const columns = ref([
   }
 ]);
 
+// Variável reativa para controlar a visibilidade das categorias em cada coluna
 const show = ref([false, false, false, false]);
 
+// Função para alternar a visibilidade das categorias em cada coluna
 const toggleShow = (index) => {
   show.value[index] = !show.value[index];
   if (show.value[index]) {
@@ -43,7 +47,7 @@ const toggleShow = (index) => {
     });
   }
 }
-
+// Função para rotas
 const navigate = (path) => {
   const router = useRouter();
   router.push(path);
@@ -51,11 +55,14 @@ const navigate = (path) => {
 </script>
 
 <template>
+  <!-- Colocar footer responsivo -->
   <div class="bg-gray-900 w-full flex flex-col text-white">
     <div class="flex flex-col lg:flex-row justify-between mx-4 lg:mx-48 mt-8 lg:mt-12">
       <div v-for="(column, index) in columns" :key="index" class="flex flex-col mt-4 lg:mt-0 lg:mr-8">
+         <!-- Título da coluna e definir setas -->
         <h3 class="text-xl font-bold text-center lg:flex">{{ column.title }}<button @click="toggleShow(index)"
             class="text-zinc-400 ml-2 lg:hidden">{{ show[index] ? '⭡' : '↓' }}</button></h3>
+        <!-- Cada categoria -->
         <nav class="mt-4 lg:mt-6 text-zinc-400 text-xl font-semibold">
           <ul :class="{ 'justify-center': show[index], 'justify-start': !show[index] }">
             <router-link v-for="(category, categoryIndex) in column.categories" :key="categoryIndex" :to="category.path"
@@ -100,10 +107,12 @@ button:hover {
   text-decoration: underline;
 }
 
+/* Estilos para itens de lista definida a cima */
 li {
   text-align: left;
 }
 
+/* Estilos para telas com largura máxima de 1024 x ...*/
 @media (max-width: 1024px) {
   li {
     text-align: center;

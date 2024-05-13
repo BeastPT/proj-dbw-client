@@ -108,7 +108,7 @@
 
 <style scoped>
 @media only screen and (max-width: 767.98px) {
-
+/* Paginas repsonsivas */
   .ml-4,
   .mr-4 {
     margin-left: 1rem;

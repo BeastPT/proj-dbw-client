@@ -106,6 +106,7 @@
 
 
 @media only screen and (max-width: 768px) {
+  /*estializacao para telas mais pequenas*/
   .flex {
     flex-direction: column;
   }
@@ -117,7 +118,7 @@
     width: 100%;
   }
 
-  .bg-blue-300 img,
+  .bg-blue-300 img, 
   .bg-yellow-300 img,
   .bg-red-300 img,
   .bg-green-300 img {

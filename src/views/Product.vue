@@ -1,4 +1,5 @@
 <template>
+  <!-- Verificar os dados -->
   <div v-if="!isLoaded || !data?.banner"></div>
   <div v-else class="mx-4 md:mx-8 lg:mx-16 xl:mx-24">
     <img :src="`/images/${data.banner}`" :alt="name" class="banner mb-4 mt-4 mx-auto rounded-lg">
@@ -7,6 +8,7 @@
     <div class="flex flex-wrap justify-center text-center mb-10">
       <ButtonLanguage v-for="(e, i) in data.popular.elements" :key="i" :text="e.name" @click="createService(e.name)" />
     </div>
+      <!-- coluna botões de países -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-16">
       <ButtonCountry v-for="(element, index) in data.explore.elements" :key="index" :image="element.image"
         :altText="element.name" :countryName="element.name">
@@ -19,6 +21,7 @@
   </div>
 
   <div>
+    <!-- Perguntas frequentes que vem da componente FAQ -->
     <FAQ title="Perguntas Frequentes" :faqs="faq">
     </FAQ>
   </div>

@@ -18,7 +18,7 @@
         Sessão</button>
     </div>
 
-
+    <!-- FORMULÁRIO DOS DADOS DE UTILIZADOR -->
     <div class="bg-white p-8 rounded-lg border border-gray-900 mb-8">
       <form @submit.prevent="changeData" class="flex flex-wrap -mx-2">
         <div class="w-full md:w-1/2 px-2 mb-4">

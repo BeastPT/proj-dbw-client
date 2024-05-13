@@ -26,7 +26,8 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 const { token } = storeToRefs(userStore()); // Importa o token do store
-const BASE_URL = "http://localhost:3001/api/";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const servicesnotfound = ref();
 
 const users = ref([]);

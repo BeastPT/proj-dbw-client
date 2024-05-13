@@ -42,8 +42,8 @@ const isLoaded = ref(false);
 const router = useRoute();
 const router2 = useRouter();
 let name, data, resume, faq = {};
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const BASE_URL = "http://localhost:3001/api/";
 try {
   const response = await fetch(`${BASE_URL}product/${router.params.id}`) // Faz um pedido para o servidor para obter o produto
 

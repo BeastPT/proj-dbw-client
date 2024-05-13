@@ -129,7 +129,8 @@ const msg = ref('')
 const messages = ref([])
 const chatOptions = ref()
 const chatsubject = ref('')
-const BASE_URL = "http://localhost:3001/api/";
+
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 await loadChats();
 

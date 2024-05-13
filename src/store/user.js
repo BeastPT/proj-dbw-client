@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
-
-const BASE_URL = "http://localhost:3001/api/";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 // Define uma store chamada 'user' com um estado inicial que contém o token e o usuário 
 // (Serve para acessar o token e o usuário de "qualquer" lugar do código)

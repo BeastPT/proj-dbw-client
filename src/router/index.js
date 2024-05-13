@@ -15,7 +15,7 @@ const router = createRouter({
         {
           path: 'reclamacoes',
           name: 'reclamacoes',
-          component: () => import('../views/Obter_ajuda.vue')
+          component: () => import('../views/Reclamacoes.vue')
         },
         {
           path: 'lifestyle',
@@ -40,7 +40,7 @@ const router = createRouter({
         {
           path: 'support',
           name: 'support',
-          component: () => import('../views/ObterAjuda_IA.vue')
+          component: () => import('../views/ObterAjuda.vue')
         },
         {
           path: 'productunavailable',

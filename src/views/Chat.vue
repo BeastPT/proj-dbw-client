@@ -107,7 +107,7 @@ import ChatLink from '@/components/ChatLink.vue';
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
 import userStore from '@/store/user.js'
 
-const userSt = userStore();
+const userSt = userStore(); // É onde esta armazenado os dados do usuário
 const route = useRoute();
 const isChatLoaded = ref(false);
 const chatsNotFound = ref(true);
@@ -125,41 +125,41 @@ const BASE_URL = "http://localhost:3001/api/";
 
 await loadChats();
 
-if (route.params.id) {
+if (route.params.id) { // Se tiver um id de chat no URL, carrega as mensagens
   await loadMessages();
 }
 
-watch(() => route.params.id, async (id) => {
+watch(() => route.params.id, async (id) => { // Quando o id do chat mudar no URL, carrega as mensagens
   chatNotFound.value = false
   if (id) {
     await loadMessages();
-    scrollToBottom()
+    scrollToBottom() // Da scroll no chat para a ultima mensagem
   }
 })
 
 async function loadMessages() {
   try {
-    const response = await fetch(`${BASE_URL}chat/${route.params.id}`, {
+    const response = await fetch(`${BASE_URL}chat/${route.params.id}`, { // Obtem as mensagens do chat :id na API
       headers: {
         'authorization': userSt.token
       }
     })
     if (!response.ok || response.status === 404) {
-      return chatNotFound.value = true;
+      return chatNotFound.value = true; // Se não encontrar o chat, mostra uma mensagem de erro
     }
 
     const data = (await response.json())
-    messages.value = data.message;
-    chatsubject.value = data.subject;
+    messages.value = data.message; // Adiciona as mensagens ao array de mensagens
+    chatsubject.value = data.subject; // Adiciona o assunto do chat
     isChatLoaded.value = true;
   } catch (error) {
     chatNotFound.value = true;
   }
 }
 
-async function loadChats() {
+async function loadChats() { // Obtem a lista de chats do usuário
   try {
-    const response = await fetch(`${BASE_URL}chat/list`, {
+    const response = await fetch(`${BASE_URL}chat/list`, { // Obtem a lista de chats do usuário pela API
       headers: {
         'authorization': userSt.token
       }
@@ -168,9 +168,9 @@ async function loadChats() {
       return
     }
     const data = (await response.json()).message
-    chatOptions.value = data.map(chat => {
+    chatOptions.value = data.map(chat => { // Mapeia os chats para o formato seguinte (label, route)
       const date = new Date(chat.createdAt)
-      const formattedDate = date.toLocaleDateString('pt-PT', {
+      const formattedDate = date.toLocaleDateString('pt-PT', { // Formata a data para o formato dd/mm/aaaa
         day: '2-digit',
         month: '2-digit',
         year: 'numeric'
@@ -185,17 +185,17 @@ async function loadChats() {
   }
 }
 
-async function sendMessage(){
-  if (!msg.value) return;
-  const message = {
+async function sendMessage(){ // Função para enviar uma mensagem
+  if (!msg.value) return; // Se a mensagem estiver vazia, não envia
+  const message = { 
     text: msg.value,
     isUser: true
   }
-  messages.value.push(message)
+  messages.value.push(message) // Adiciona a mensagem ao array de mensagens
   msg.value = ''
-  scrollToBottom()
+  scrollToBottom() // Da scroll automaticamente ao adicionar a mensagem
   try {
-    const response = await fetch(`${BASE_URL}chat/${route.params.id}/addMessage`, {
+    const response = await fetch(`${BASE_URL}chat/${route.params.id}/addMessage`, { // Envia a mensagem para a API e recebe a resposta da OpenAI
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -204,32 +204,32 @@ async function sendMessage(){
       body: JSON.stringify({ message: message.text })
     })
     if (!response.ok) {
-      return chatNotFound.value = true;
+      return chatNotFound.value = true; // Se não encontrar o chat, mostra uma mensagem de erro
     }
     const data = await response.json()
     messages.value.push({
       text: data.answer,
       isUser: false
-    })
-    scrollToBottom()
+    }) // Adiciona a resposta da OpenAI ao array de mensagens
+    scrollToBottom() // Da scroll automaticamente ao adicionar a mensagem
   } catch (error) {
     chatNotFound.value = true;
     console.log('error')
   }
 }
 
-const toggleChatMenu = () => {
+const toggleChatMenu = () => { // Função para mostrar/esconder o menu (Utilizado em dispositivos móveis)
   showMenu.value = !showMenu.value;
 };
 
-const handleResize = () => {
+const handleResize = () => { // Função para atualizar a largura da janela
   windowWidth.value = window.innerWidth;
   if (windowWidth.value > 640) {
     showMenu.value = false;
   }
 };
 
-function scrollToBottom() {
+function scrollToBottom() { // Função para dar scroll automaticamente ao fundo do chat
   if (messageContainer.value) {
     requestAnimationFrame(() => {
       messageContainer.value.scrollTop = messageContainer.value.scrollHeight;
@@ -242,7 +242,7 @@ onMounted(() => {
     showMenu.value = false;
   }
   window.addEventListener('resize', handleResize);
-  scrollToBottom()
+  scrollToBottom() // Da scroll automaticamente ao fundo do chat
 });
 
 onBeforeUnmount(() => {

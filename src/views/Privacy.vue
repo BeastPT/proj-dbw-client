@@ -19,8 +19,8 @@
       </section>
   
       <section class="mb-8">
-        <h2 class="text-2xl font-semibold mb-4">Compromisso do Usuário</h2>
-        <p>O usuário se compromete a fazer uso adequado dos conteúdos e da informação que o SkillSwapp oferece no site e com caráter enunciativo, mas não limitativo:</p>
+        <h2 class="text-2xl font-semibold mb-4">Compromisso do Utilizador</h2>
+        <p>O utilizador compromete-se a fazer o uso adequado dos conteúdos e da informação que o SkillSwapp oferece no site e com caráter enunciativo, mas não limitativo:</p>
         <ul>
           <li>Não se envolver em atividades que sejam ilegais ou contrárias à boa fé a à ordem pública;</li>
           <li>Não difundir propaganda ou conteúdo de natureza racista, xenofóbica, Bet Nacional ou azar, qualquer tipo de pornografia ilegal, de apologia ao terrorismo ou contra os direitos humanos;</li>

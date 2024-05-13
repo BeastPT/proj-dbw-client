@@ -52,43 +52,42 @@
         <ul :class="showMenu ? 'flex flex-col items-center' : 'hidden lg:flex lg:flex-row lg:items-center lg:space-x-10 lg:mt-0'" class="mt-8 space-y-4">
           <RouterLink to="/"><li class="text-xl font-bold text-gray-100 hover:text-indigo-400 lg:hidden">Home</li></RouterLink>
           <RouterLink to="/about"><li class="text-xl font-bold text-gray-100 hover:text-indigo-400 lg:hidden">About Us</li></RouterLink>
-          <RouterLink to="/chat"><li class="text-xl font-bold text-gray-100 hover:text-indigo-400 lg:hidden">Chat</li></RouterLink>
+          <RouterLink to="/"><li class="text-xl font-bold text-gray-100 hover:text-indigo-400 lg:hidden">Chat</li></RouterLink>
           <RouterLink to="/community"><li class="text-xl font-bold text-gray-100 hover:text-indigo-400 lg:hidden">Comunidade</li></RouterLink>
         </ul>
       </nav>
     </div>
   </template>
   
-  <script>
-  import { ref } from 'vue';
-  import { storeToRefs } from 'pinia';
-  import userStore from '@/store/user.js';
-  import { useRouter, RouterLink } from 'vue-router';
-  
-  export default {
-    setup() {
-      const userSt = userStore()
-      const router = useRouter();
-      let showMenu = ref(false);
-      const { token: loggedIn, user} = storeToRefs(userSt)
-      const imgUrl = ref(user.value?.image_url || '/images/img_avatar.png')
+ <script setup>
+import { ref, watch } from 'vue';
+import { storeToRefs } from 'pinia';
+import userStore from '@/store/user.js';
+import { useRouter } from 'vue-router';
 
-      const toggleNav = () => (showMenu.value = !showMenu.value);
-  
-      const login = () => {
-        
-        router.push('/login');
-      };
-  
-      const register = () => {
-       
-        router.push('/register');
-      };
-  
-      return { showMenu, toggleNav, loggedIn, login, register, imgUrl};
-    },
-  };
-  </script>
+const userSt = userStore();
+const router = useRouter();
+
+const { token: loggedIn, user } = storeToRefs(userSt);
+const imgUrl = ref(user.value?.image_url || '/images/img_avatar.png');
+const showMenu = ref(false);
+
+watch(()=> user, () => {
+  imgUrl.value = user.value.image_url || '/images/img_avatar.png';
+}, { deep: true });
+
+const toggleNav = () => {
+  showMenu.value = !showMenu.value;
+};
+
+const login = () => {
+  router.push('/login');
+};
+
+const register = () => {
+  router.push('/register');
+};
+</script>
   
   <style>
   .login-btn {

@@ -116,6 +116,15 @@
         </div>
       </form>
     </div>
+
+    <div class="my-8 border-t border-gray-300"></div>
+    <div class="font-semibold mb-4 text-lg">
+      <h1>Métricas:</h1>
+    </div>
+    <div class="bg-white p-8 rounded-lg border border-gray-900 mb-8 h-96">
+      <Graph />
+    </div>
+
   </div>
 </template>
 
@@ -128,6 +137,8 @@ const userSt = userStore()
 const { token, user } = storeToRefs(userSt)
 
 import Popup from '@/components/PopupProfile.vue'; // Importa o componente PopupProfile
+import Graph from '@/components/Graph.vue'; // Importa o componente Graph
+
 const router = useRouter()
 const isLoaded = ref(false)
 const fullnameh = ref()

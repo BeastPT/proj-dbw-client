@@ -21,7 +21,7 @@
             <input v-model="imageUrl" type="text" class="mb-2 md:mb-0 md:mr-2 w-full"
               placeholder="Insira o link da imagem">
             <!-- create an error -->
-            <span class="text-red-500 text-sm" v-if="errorMessage">{{errorMessage[0]}}</span>
+            <span class="text-red-500 text-sm" v-if="errorMessage">{{ errorMessage[0] }}</span>
           </div>
 
           <button @click="handleImageLink" class="bg-gray-900 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded">
@@ -47,14 +47,14 @@ const closeModal = () => {
   isOpen.value = false;
 };
 
-const handleImageLink = async() => {
+const handleImageLink = async () => {
   if (imageUrl.value.trim() !== '') {
     const data = await userSt.updateImage(imageUrl.value);
-      if (data.error) {
-        return errorMessage.value = data.error
-      } else {
-        isOpen.value = false;
-      }
+    if (data.error) {
+      return errorMessage.value = data.error
+    } else {
+      isOpen.value = false;
+    }
   }
 };
 </script>

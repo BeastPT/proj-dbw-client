@@ -7,51 +7,63 @@
       <div class="flex items-center mb-4 md:mb-0">
         <img :src="imgUrl" class="w-16 h-16 rounded-full" alt="Imagem de perfil">
         <div class="ml-4">
-          <h2 class="text-lg mb-1">{{fullnameh}}</h2>
-          <p class="text-sm text-gray-500">Membro da SKILLswap desde {{yearjoined}}</p>
+          <h2 class="text-lg mb-1">{{ fullnameh }}</h2>
+          <p class="text-sm text-gray-500">Membro da SKILLswap desde {{ yearjoined }}</p>
         </div>
       </div>
       <div class=" md:text-right md:mb-0 md:ml-auto md:mr-4">
-        <Popup/>
+        <Popup />
       </div>
-      <button @click="logout" class="bg-gray-900 text-white px-3 py-2 rounded hover:bg-gray-800 mt-4 md:mt-0">Sair da Sessão</button>
+      <button @click="logout" class="bg-gray-900 text-white px-3 py-2 rounded hover:bg-gray-800 mt-4 md:mt-0">Sair da
+        Sessão</button>
     </div>
-    
+
 
     <div class="bg-white p-8 rounded-lg border border-gray-900 mb-8">
       <form @submit.prevent="changeData" class="flex flex-wrap -mx-2">
         <div class="w-full md:w-1/2 px-2 mb-4">
           <label for="fullname" class="block text-gray-700 font-semibold mb-2">Nome Completo:</label>
-          <input type="text" id="fullname" v-model="formdata.fullname" name="fullname" class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.fullname || 'Escreva aqui'">
+          <input type="text" id="fullname" v-model="formdata.fullname" name="fullname"
+            class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.fullname || 'Escreva aqui'">
         </div>
         <div class="w-full md:w-1/2 px-2 mb-4">
           <label for="address" class="block text-gray-700 font-semibold mb-2">Morada:</label>
-          <input type="text" id="address" v-model="formdata.address" name="address" class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.address || 'Escreva aqui'">
+          <input type="text" id="address" v-model="formdata.address" name="address"
+            class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.address || 'Escreva aqui'">
         </div>
         <div class="w-full md:w-1/2 px-2 mb-4">
           <label for="email" class="block text-gray-700 font-semibold mb-2">E-mail:</label>
-          <input type="text" id="email" v-model="formdata.email" name="email" class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.email || 'Escreva aqui'">
+          <input type="text" id="email" v-model="formdata.email" name="email"
+            class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.email || 'Escreva aqui'">
         </div>
         <div class="w-full md:w-1/2 px-2 mb-4">
           <label for="door" class="block text-gray-700 font-semibold mb-2">Porta:</label>
-          <input type="text" id="address_door" v-model="formdata.address_door" name="door" class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.address_number || 'Escreva aqui'">
+          <input type="text" id="address_door" v-model="formdata.address_door" name="door"
+            class="w-full px-3 py-2 border rounded-md bg-gray-200"
+            :placeholder="userData.address_number || 'Escreva aqui'">
         </div>
 
         <div class="w-full md:w-1/4 px-2 mb-4">
           <label for="postal_code" class="block text-gray-700 font-semibold mb-2">Código Postal:</label>
-          <input type="text" id="postal_code" v-model="formdata.postal_code" name="postal_code" class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.postal_code || 'Escreva aqui'">
+          <input type="text" id="postal_code" v-model="formdata.postal_code" name="postal_code"
+            class="w-full px-3 py-2 border rounded-md bg-gray-200"
+            :placeholder="userData.postal_code || 'Escreva aqui'">
         </div>
         <div class="w-full md:w-1/4 px-2 mb-4">
           <label for="country" class="block text-gray-700 font-semibold mb-2">País:</label>
-          <input type="text" id="country" v-model="formdata.country" name="country" class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.country || 'Escreva aqui'">
+          <input type="text" id="country" v-model="formdata.country" name="country"
+            class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.country || 'Escreva aqui'">
         </div>
         <div class="w-full md:w-1/4 px-2 mb-4">
           <label for="city" class="block text-gray-700 font-semibold mb-2">Cidade:</label>
-          <input type="text" id="city" v-model="formdata.city" name="city" class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.city || 'Escreva aqui'">
+          <input type="text" id="city" v-model="formdata.city" name="city"
+            class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.city || 'Escreva aqui'">
         </div>
         <div class="w-full md:w-1/4 px-2 mb-4">
           <label for="nacionality" class="block text-gray-700 font-semibold mb-2">Nacionalidade:</label>
-          <input type="text" id="nacionality" v-model="formdata.nacionality" name="nacionality" class="w-full px-3 py-2 border rounded-md bg-gray-200" :placeholder="userData.nacionality || 'Escreva aqui'">
+          <input type="text" id="nacionality" v-model="formdata.nacionality" name="nacionality"
+            class="w-full px-3 py-2 border rounded-md bg-gray-200"
+            :placeholder="userData.nacionality || 'Escreva aqui'">
         </div>
 
         <!--################## Botaoo de envio #########################-->
@@ -73,26 +85,34 @@
         <!-- Campo da senha antiga -->
         <div class="input-container">
           <label for="old_password" class="block text-gray-700 font-semibold mb-2">Palavra-passe Antiga:</label>
-          <input type="password" id="old_password" name="old_password" v-model="updatePasswordData.old" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui" autocomplete="current-password">
+          <input type="password" id="old_password" name="old_password" v-model="updatePasswordData.old"
+            class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui"
+            autocomplete="current-password">
         </div>
 
         <!-- Campo da nova senha -->
         <div class="input-container">
           <label for="new_password" class="block text-gray-700 font-semibold mb-2">Nova Palavra-passe:</label>
-          <input type="password" id="new_password" name="new_password" v-model="updatePasswordData.new" class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui" autocomplete="new-password">
+          <input type="password" id="new_password" name="new_password" v-model="updatePasswordData.new"
+            class="w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui"
+            autocomplete="new-password">
         </div>
 
         <!-- Campo de confirmcaoo  -->
         <div class="input-container">
-          <label for="confirm_password" class="block text-gray-700 font-semibold mb-2">Confirmar Nova Palavra-passe:</label>
-          <input type="password" id="confirm_password" name="confirm_password" v-model="updatePasswordData.confirm" class="mb-4 w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui" autocomplete="new-password">
+          <label for="confirm_password" class="block text-gray-700 font-semibold mb-2">Confirmar Nova
+            Palavra-passe:</label>
+          <input type="password" id="confirm_password" name="confirm_password" v-model="updatePasswordData.confirm"
+            class="mb-4 w-full px-3 py-2 border rounded-md bg-gray-200" placeholder="Escreva aqui"
+            autocomplete="new-password">
         </div>
 
         <input type="hidden" id="username" name="username" :value="user.username">
 
         <!-- Botão de envio -->
         <div class="button-container">
-          <button type="submit" class="bg-blue-400 text-white px-4 py-2 rounded hover:bg-blue-600">Alterar Palavra-passe</button>
+          <button type="submit" class="bg-blue-400 text-white px-4 py-2 rounded hover:bg-blue-600">Alterar
+            Palavra-passe</button>
         </div>
       </form>
     </div>
@@ -107,22 +127,23 @@ import userStore from '@/store/user.js'
 const userSt = userStore()
 const { token, user } = storeToRefs(userSt)
 
-import Popup from '@/components/PopupProfile.vue';
+import Popup from '@/components/PopupProfile.vue'; // Importa o componente PopupProfile
 const router = useRouter()
 const isLoaded = ref(false)
 const fullnameh = ref()
 const yearjoined = ref()
 const userData = ref()
 
-if (!token || !user) {
+if (!token || !user) {  // Se não tiver token ou user, redireciona para a página de login
   router.push('/login')
 }
-const imgUrl = ref(user.value?.image_url || '/images/img_avatar.png')
+const imgUrl = ref(user.value?.image_url || '/images/img_avatar.png') // Define a imagem de perfil do utilizador
 
-watch(()=> user, () => {
-  imgUrl.value = user.value?.image_url || '/images/img_avatar.png';
+watch(() => user, () => { // Se o utilizador mudar a imagem, atualiza a imagem de perfil
+  imgUrl.value = user.value?.image_url || '/images/img_avatar.png'; 
 }, { deep: true });
 
+// Dados do Perfil/Formulario
 const formdata = ref({
   fullname: '',
   address: '',
@@ -134,6 +155,7 @@ const formdata = ref({
   nacionality: ''
 })
 
+// Dados para mudar a senha
 const updatePasswordData = ref({
   old: '',
   new: '',
@@ -144,40 +166,42 @@ let dataObj = {}
 
 const BASE_URL = "http://localhost:3001/api/";
 try {
-  const response = await fetch(`${BASE_URL}user/${user.value._id}`, {
+  const response = await fetch(`${BASE_URL}user/${user.value._id}`, { // Faz um pedido para o servidor para obter o utilizador
     headers: {
       'authorization': token.value
     }
   })
-  if (!response.ok) {
+  if (!response.ok) { // Se não tiver sucesso, redireciona para a página de login
     router.push('/');
   }
 
   dataObj = (await response.json()).message
+  // Define as variáveis com os dados do utilizador
   fullnameh.value = dataObj.fullname ? `${dataObj.fullname} (${dataObj.username})` : dataObj.username
   yearjoined.value = (new Date(dataObj.createdAt)).getFullYear()
   userData.value = dataObj
   isLoaded.value = true;
 } catch (error) {
   console.log(error)
-  router.push('/');
+  router.push('/'); // Se der erro, redireciona para a página inicial
 }
 
 async function changeData() {
   try {
-    const response = await fetch(`${BASE_URL}user/${user.value._id}/edit`, {
+    const response = await fetch(`${BASE_URL}user/${user.value._id}/edit`, { // Faz um pedido para o servidor para editar o utilizador
       method: 'POST',
       headers: {
         "authorization": token.value,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formdata.value),
+      body: JSON.stringify(formdata.value), // Envia os dados do formulário
     })
 
     const msg = (await response.json()).message
     if (!response.ok) {
-      return console.log(msg)
+      return console.log(msg) 
     } else {
+      // Atualiza os dados do utilizador
       dataObj = msg
       fullnameh.value = dataObj.fullname ? `${dataObj.fullname} (${dataObj.username})` : dataObj.username
       yearjoined.value = (new Date(dataObj.createdAt)).getFullYear()
@@ -192,17 +216,17 @@ async function changeData() {
 }
 
 
-async function changePassword() {
-  const { old: oldpassowrd, new: newpassword, confirm } = updatePasswordData.value
-  if (newpassword !== confirm) {
+async function changePassword() { // Função para mudar a senha
+  const { old: oldpassowrd, new: newpassword, confirm } = updatePasswordData.value // Define as variáveis
+  if (newpassword !== confirm) { // Se as novas senhas não coincidirem, retorna
     return console.log('As novas palavras-passe não coincidem')
   }
 
-  if (oldpassowrd === newpassword) {
+  if (oldpassowrd === newpassword) { // Se a senha antiga for igual à nova, retorna
     return console.log('A nova palavra-passe não pode ser igual à antiga')
   }
 
-  userSt.updatePassword(oldpassowrd, newpassword)
+  userSt.updatePassword(oldpassowrd, newpassword) // Chama a função de mudar a senha da store
     .then(() => {
       console.log('Password changed')
     })
@@ -234,7 +258,7 @@ async function logout() {
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .w-full {
-    width: 100%; 
+    width: 100%;
   }
 
   input[type="text"],
@@ -243,8 +267,8 @@ async function logout() {
   input[type="number"],
   input[type="tel"],
   textarea {
-    width: calc(100% - 20px); 
-    padding: 10px; 
+    width: calc(100% - 20px);
+    padding: 10px;
   }
 }
 
@@ -259,8 +283,8 @@ async function logout() {
   input[type="number"],
   input[type="tel"],
   textarea {
-    width: calc(100% - 20px); 
-    padding: 10px; 
+    width: calc(100% - 20px);
+    padding: 10px;
   }
 }
 </style>

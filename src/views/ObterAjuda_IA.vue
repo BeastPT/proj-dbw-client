@@ -43,22 +43,22 @@ import { useRouter } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import userStore from '@/store/user.js';
 
-const { token } = storeToRefs(userStore());
+const { token } = storeToRefs(userStore()); // Importa o token do store
 
 const router = useRouter();
 const message = ref('');
 const BASE_URL = "http://localhost:3001/api/";
 
 
-async function sendMessage() {
-  if (message.value === '') return;
-  if (!token.value) {
+async function sendMessage() { // Função para enviar mensagem
+  if (message.value === '') return; // Se a mensagem estiver vazia, retorna
+  if (!token.value) { // Se nao tiver token, ou seja, dado login redereciona para a página de login
     router.push('/login');
     return;
   }
 
   try {
-    const response = await fetch(`${BASE_URL}chat/support`, {
+    const response = await fetch(`${BASE_URL}chat/support`, { // Faz um pedido para o servidor para obter o chat de suporte
       method: 'GET',
       headers: {
         'authorization': token.value,
@@ -66,7 +66,7 @@ async function sendMessage() {
     })
     const data = (await response.json()).message;
 
-    await fetch(`${BASE_URL}chat/${data._id}/addMessage`, {
+    await fetch(`${BASE_URL}chat/${data._id}/addMessage`, { // Adiciona uma mensagem ao chat
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -76,8 +76,8 @@ async function sendMessage() {
     })
 
     setTimeout(() => {
-      router.push(`/chat/${data._id}`);
-    }, 2000);
+      router.push(`/chat/${data._id}`); // Redireciona para o chat depois de 1segundos
+    }, 1000);
   } catch (error) {
     console.log(error)
   }

@@ -39,7 +39,7 @@ const imageSrc = ref('')
 const rightStatus = ref('')
 
 // Status.value -> 'active', 'finished', 'cancelled'
-switch (props.Status){
+switch (props.Status) {
   case 'active':
     rightStatus.value = 'Ativo'
     imageSrc.value = '/images/yellow.png'

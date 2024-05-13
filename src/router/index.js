@@ -101,7 +101,7 @@ const router = createRouter({
 
 import userStore from '@/store/user.js'
 const needsAuth = ['profile', 'purchase', 'chat', 'chatid']
-router.beforeEach((to, from) => {
+router.beforeEach((to, from) => { // Proteger as rotas que precisam de autenticação
   const userSt = userStore()
   if ( (to.name == 'login' || to.name == 'register') && userSt.token) {
     return '/'

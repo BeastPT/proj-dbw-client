@@ -25,29 +25,27 @@ import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
-const { token } = storeToRefs(userStore());
+const { token } = storeToRefs(userStore()); // Importa o token do store
 const BASE_URL = "http://localhost:3001/api/";
 const servicesnotfound = ref();
 
 const users = ref([]);
 
 try {
-  const response = await fetch(`${BASE_URL}service/list`, {
+  const response = await fetch(`${BASE_URL}service/list`, { // Faz um pedido para o servidor para obter a lista de serviços
     headers: {
       'authorization': token.value
     }
   })
 
   if (!response.ok) {
-    servicesnotfound.value = true
+    servicesnotfound.value = true // Se não encontrar serviços, mostra a mensagem de serviços não encontrados
   }
 
   const output = (await response.json()).message;
-  users.value = output.map((e) => {
+  users.value = output.map((e) => { // Mapeia os serviços para o formato do componente
     return {
       Title: e.subject || 'Unknown',
-
-
       Id: e._id,
       Value: e.price,
       OrderDate: formatDate(e.createdAt),
@@ -59,10 +57,10 @@ try {
 
 } catch (error) {
   console.log(error)
-  router.push('/user/profile')
+  router.push('/user/profile') // Se der erro, redireciona para a página de perfil do utilizador
 }
 
-function formatDate(date) {
+function formatDate(date) { // Função para formatar a data
   return new Date(date).toLocaleDateString('pt-PT', {
     day: '2-digit',
     month: '2-digit',

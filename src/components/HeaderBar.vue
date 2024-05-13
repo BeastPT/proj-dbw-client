@@ -2,9 +2,7 @@
     <div class="bg-gray-900">
       <nav class="container px-6 py-16 mx-auto lg:flex lg:justify-between lg:items-center">
         <div class="flex items-center justify-between w-full">
-          <button class="text-xl font-bold text-gray-100 lg:text-2xl hover:text-indigo-400">
-            <img src="/images/skillswap.png" alt="Logo" class="h-16">
-          </button>
+          <RouterLink to="/"><img src="/images/skillswap.png" alt="Logo" class="h-16"></RouterLink>
           
           <div class="hidden lg:flex items-center justify-end w-full lg:w-auto"> 
             <ul class="hidden lg:flex justify-end w-full md:w-auto space-x-4 md:space-x-8 lg:space-x-8 xl:space-x-8">
@@ -73,7 +71,7 @@ const imgUrl = ref(user.value?.image_url || '/images/img_avatar.png');
 const showMenu = ref(false);
 
 watch(()=> user, () => {
-  imgUrl.value = user.value.image_url || '/images/img_avatar.png';
+  imgUrl.value = user.value?.image_url || '/images/img_avatar.png';
 }, { deep: true });
 
 const toggleNav = () => {

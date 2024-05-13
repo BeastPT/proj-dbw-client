@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="pt-8">
-            <button class="w-full h-10 bg-gray-800 rounded-full text-white text-sm">Inscreva-se</button>
+            <button class="w-full h-10 bg-gray-800 rounded-full text-white text-sm">Brevemente</button>
         </div>
     </div>
     </div>

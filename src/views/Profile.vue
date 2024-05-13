@@ -100,8 +100,6 @@
 </template>
 
 <script setup>
-import UserBar from '@/components/UserBar.vue';
-
 import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia';

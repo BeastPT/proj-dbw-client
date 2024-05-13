@@ -71,7 +71,7 @@ const navigate = (path) => {
     </div>
    
     <div class="flex flex-col lg:flex-row items-center mx-4 lg:mx-48 mt-8 lg:mt-32 border-t-4 border-t-white p-6">
-      <span class="text-xl font-bold text-center lg:text-left lg:w-1/3">SkillSwapp Logo</span>
+      <span class="text-xl font-bold text-center lg:text-left lg:w-1/3"><img src="/images/skillswap.png" alt="SkillSwapp Logo" class="h-14"></span>
       <span class="text-xl font-bold mt-4 lg:mt-0 text-center lg:text-center lg:w-1/3">Madeira, Portugal</span>
       <router-link to="/privacy" class="text-sm font-light mt-4 lg:mt-0 text-center lg:text-right lg:w-1/3">Política de Privacidade e Cookies</router-link>
 

@@ -20,7 +20,6 @@
 <script setup>
 import { ref } from 'vue';
 import PurchaseCard from '@/components/PurchaseCard.vue';
-import UserBar from '@/components/UserBar.vue';
 import userStore from '@/store/user.js';
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';

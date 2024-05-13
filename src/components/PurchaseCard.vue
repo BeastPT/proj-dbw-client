@@ -5,7 +5,7 @@
       <div class="flex flex-wrap mb-4">
         <!-- <p class="w-full lg:text-left w-1/2">Assunto: {{ Subject }}</p> -->
         <p class="w-full lg:text-left ">Código do projeto: {{ Id }}</p>
-        <p class="w-full lg:text-left w-1/6">Valor: {{ Value }}</p>
+        <p class="lg:text-left w-1/6">Valor: {{ Value }}</p>
       </div>
       <div class="flex flex-wrap">
         <p class="w-full lg:text-left ">Data de pedido: {{ OrderDate }}</p>

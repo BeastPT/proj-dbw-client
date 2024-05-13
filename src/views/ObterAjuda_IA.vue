@@ -1,21 +1,17 @@
 <template>
   <div class="mx-4 md:mx-8 lg:mx-48" style="font-family: Arial, sans-serif;">
     <h1 class="text-3xl md:text-4xl text-center mt-8 font-bold">Obter Ajuda</h1>
-      
+
     <h2 class="text-xl md:text-2xl font-semibold mb-2 mt-8">Fale com a nossa assistente virtual</h2>
-    <div class="border-b-4 bg-gray-200 rounded-2xl"></div>
 
     <div class="shadow-md rounded-bl-lg rounded-lg ">
-      <div class="mt-8 flex-col items-center justify-center h-chat text-gray-800 p-10 bg-gray-200 rounded-tl-lg rounded-tr-lg overflow-y-auto">
-        <div v-for="(chat, index) in chats" :key="index">
-          <ObterMessage :notIA="chat.notIA" :message="chat.message" :timestamp="chat.timestamp" />
-        </div>
+      <div class="bg-gray-300 p-4 flex flex-col md:flex-row md:items-center rounded-lg">
+        <input class="flex-grow h-10 rounded px-3 text-sm mb-2 md:mb-0 md:mr-2" type="text"
+          placeholder="Escreva a sua mensagem..." v-model="message" @keyup.enter="sendMessage">
+        <button @click="sendMessage"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Enviar</button>
       </div>
-      <div class="bg-gray-300 p-4 flex flex-col md:flex-row md:items-center rounded-bl-lg rounded-br-lg">
-        <input class="flex-grow h-10 rounded px-3 text-sm mb-2 md:mb-0 md:mr-2" type="text" placeholder="Escreva a sua mensagem...">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Enviar</button>
-      </div>            
-    </div>  
+    </div>
 
     <h2 class="text-xl md:text-2xl font-semibold mb-2 mt-8">Contacta-nos</h2>
     <div class="border-b-4 bg-gray-200 rounded-2xl mb-8"></div>
@@ -41,26 +37,52 @@
   </div>
 </template>
 
-<script>
-import ObterMessage from '@/components/ObterMessage.vue';
+<script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { storeToRefs } from 'pinia';
+import userStore from '@/store/user.js';
 
-export default {
-  components: {
-    ObterMessage
-  },
-  data() {
-    return {
-      chats: [
-        { notIA: false, message: "Como posso ajudar??", timestamp: "2 min ago" },
-        { notIA: true, message: "Olá! Estou um pouco perdido sobre como começar como freelancer. Pode me dar algumas dicas?", timestamp: "2 min ago" },
-        { notIA: false, message: "Claro, ficarei feliz em ajudar! Primeiramente, qual é a sua área de atuação? Escrita, tradução, programação, ou outra coisa?", timestamp: "2 min ago" },
-        { notIA: true, message: "Sou programador", timestamp: "2 min ago" },
-        { notIA: true, message: "E preciso da tua ajuda", timestamp: "2 min ago" },
-        { notIA: false, message: "Ótimo! Iniciar com um portfólio online pode ser muito eficaz. Utilize plataformas como GitHub para compartilhar seus projetos e código-fonte. Isso permite que os potenciais clientes avaliem suas habilidades aqui na SKILLswap. Já possui um portfólio?", timestamp: "2 min ago" }
-      ]
-    };
+const { token } = storeToRefs(userStore());
+
+const router = useRouter();
+const message = ref('');
+const BASE_URL = "http://localhost:3001/api/";
+
+
+async function sendMessage() {
+  if (message.value === '') return;
+  if (!token.value) {
+    router.push('/login');
+    return;
   }
-};
+
+  try {
+    const response = await fetch(`${BASE_URL}chat/support`, {
+      method: 'GET',
+      headers: {
+        'authorization': token.value,
+      }
+    })
+    const data = (await response.json()).message;
+    console.log(data)
+
+    await fetch(`${BASE_URL}chat/${data._id}/addMessage`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization': token.value
+      },
+      body: JSON.stringify({ message: message.value })
+    })
+
+    setTimeout(() => {
+      router.push(`/chat/${data._id}`);
+    }, 2000);
+  } catch (error) {
+    console.log(error)
+  }
+}
 </script>
 
 <style scoped>

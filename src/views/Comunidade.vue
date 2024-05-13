@@ -18,7 +18,7 @@
             </p>
         <div class="mt-8 p-4 md:pt-0 flex justify-center items-center">
             <div class="event-image">
-                <img src="@/assets/images/comunidade1.jpeg" class="w-full h-full">
+                <img src="/images/comunidade1.jpeg" class="w-full h-full">
             </div>
         </div>
         <div class="pt-8">
@@ -40,7 +40,7 @@
            
         <div class="mt-8 p-4 md:pt-0 flex justify-center items-center">
             <div class="event-image">
-                <img src="@/assets/images/comunidade2.jpeg" class="w-full h-full">
+                <img src="/images/comunidade2.jpeg" class="w-full h-full">
             </div>
         </div>
         <div class="pt-8">

@@ -1,35 +1,26 @@
 <template>
-  <div v-if="servicesnotfound">
+  <template v-if="servicesnotfound">
     <div class="flex flex-col h-full justify-center items-center">
       <p class="text-lg font-bold">Serviços não encontrados</p>
     </div>
-  </div>
-  <div v-else class="flex justify-center sm:flex-wrap p-4">
-    <div class="text-center font-semibold mr-4 text-xl mb-4 sm:w-auto sm:flex-shrink-0 sm:mr-4 md:text-2xl md:mb-0">
-      <button class="hover:underline text-gray-900 ml-2">Perfil</button>
+  </template>
+  <template v-else>
+    <div class="message text-xl font-semibold mb-6 underline mx-8 md:mx-16">
+      <p class="text-center">As minhas compras</p>
     </div>
-    <div class="text-center font-semibold text-xl mb-4 sm:w-auto sm:flex-shrink-0 md:text-2xl md:mb-0 sm:mr-4 sm:ml-4">
-      <button class="hover:underline text-gray-900">Compras</button>
-    </div>
-    <div class="text-center font-semibold text-xl sm:w-auto sm:flex-shrink-0 md:text-2xl md:mb-0">
-      <button class="hover:underline text-gray-900">Favoritos</button>
-    </div>
-  </div>
 
-  <div class="message text-xl font-semibold mb-6 underline mx-8 md:mx-16">
-    <p class="text-center">As minhas compras</p>
-  </div>
-
-  <div>
-    <PurchaseCard v-for="(user, index) in users" :key="index" :Title="user.Title" :Id="user.Id" :Value="user.Value"
-      :OrderDate="user.OrderDate" :rightDeliveryDate="user.rightDeliveryDate" :Status="user.Status" />
-  </div>
+    <div>
+      <PurchaseCard v-for="(user, index) in users" :key="index" :Title="user.Title" :Id="user.Id" :Value="user.Value"
+        :OrderDate="user.OrderDate" :rightDeliveryDate="user.rightDeliveryDate" :Status="user.Status" />
+    </div>
+  </template>
 </template>
 
 
 <script setup>
 import { ref } from 'vue';
 import PurchaseCard from '@/components/PurchaseCard.vue';
+import UserBar from '@/components/UserBar.vue';
 import userStore from '@/store/user.js';
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
@@ -64,7 +55,8 @@ try {
       OrderDate: formatDate(e.createdAt),
       rightDeliveryDate: formatDate(e.updatedAt),
       Status: e.state,
-    }}
+    }
+  }
   )
 
 } catch (error) {
@@ -72,12 +64,12 @@ try {
   router.push('/user/profile')
 }
 
-function formatDate(date){
+function formatDate(date) {
   return new Date(date).toLocaleDateString('pt-PT', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric'
-      });
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  });
 }
 
 </script>

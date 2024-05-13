@@ -1,18 +1,6 @@
 <template>
   <div v-if="!isLoaded || !user"></div>
   <div v-else class="mx-auto md:mx-4">
-    <!-- #####################  PARTE DE CIMA ####################-->
-    <div class="text-center font-semibold mb-10 text-2xl p-4">
-      <!-- Botões com texto reduzido em telas menores -->
-      <div class="flex flex-wrap justify-center mx-auto">
-        <button class="mr-6 py-2 px-2 md:px-4 text-base md:text-lg hover:underline">Perfil</button>
-        <button class="mr-6 py-2 px-2 md:px-4 text-base md:text-lg hover:underline">Compras</button>
-        <button class="py-2 px-2 md:px-4 text-base md:text-lg hover:underline">Favoritos</button>
-      </div>
-      
-      
-    </div>
-
     <!-- ######################  PERFIL ############################### -->
 
     <div class="font-semibold flex flex-col md:flex-row justify-between items-center mb-4 rounded-lg">
@@ -112,6 +100,8 @@
 </template>
 
 <script setup>
+import UserBar from '@/components/UserBar.vue';
+
 import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia';

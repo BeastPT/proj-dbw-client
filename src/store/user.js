@@ -2,15 +2,17 @@ import { defineStore } from "pinia";
 
 const BASE_URL = "http://localhost:3001/api/";
 
+// Define uma store chamada 'user' com um estado inicial que contém o token e o usuário 
+// (Serve para acessar o token e o usuário de "qualquer" lugar do código)
 export default defineStore('user', {
     state: () => ({
-        token: JSON.parse(localStorage.getItem('token')),
-        user: JSON.parse(localStorage.getItem('user')),
+        token: JSON.parse(localStorage.getItem('token')), // Tenta pegar o token do localStorage
+        user: JSON.parse(localStorage.getItem('user')), // Tenta pegar o usuário do localStorage
     }),
     actions: {
-        async login(username, password) {
+        async login(username, password) { // Função para fazer login
             try {
-                const user = await fetch(`${BASE_URL}auth/login`, {
+                const user = await fetch(`${BASE_URL}auth/login`, { // Faz uma requisição na API para dar login
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -23,51 +25,51 @@ export default defineStore('user', {
 
                 const data = await user.json();
                 this.token = data.token;
-                localStorage.setItem('token', JSON.stringify(this.token));
+                localStorage.setItem('token', JSON.stringify(this.token)); // Salva o token no localStorage
                 this.user = data.user;
-                localStorage.setItem('user', JSON.stringify(this.user));
+                localStorage.setItem('user', JSON.stringify(this.user)); // Salva o usuário no localStorage
             } catch (error) {
                 throw error;
             }
         },
-        async logout() {
-            this.user = null;
+        async logout() { // Função para fazer logout
+            this.user = null; 
             this.token = null;
-            localStorage.removeItem('token');
-            localStorage.removeItem('user');
+            localStorage.removeItem('token'); // Remove o token do localStorage
+            localStorage.removeItem('user'); // Remove o usuário do localStorage
         },
-        async register(email, username, password) {
+        async register(email, username, password) { // Função para registrar um usuário
             console.log(email, username, password)
             try {
-                const user = await fetch(`${BASE_URL}auth/register`, {
+                const user = await fetch(`${BASE_URL}auth/register`, { // Faz uma requisição na API para registrar um usuário
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ email, username, password }),
+                    body: JSON.stringify({ email, username, password }), // Passa os dados do usuário
                 });
                 if (user.status == 400) {
-                    throw new Error((await user.json()).message)
+                    throw new Error((await user.json()).message) // Se der erro, lança um erro com a mensagem vinda da API
                 }
 
                 const data = await user.json();
                 this.token = data.token;
-                localStorage.setItem('token', JSON.stringify(this.token));
+                localStorage.setItem('token', JSON.stringify(this.token)); // Salva o token no localStorage
                 this.user = data.user;
-                localStorage.setItem('user', JSON.stringify(this.user));
+                localStorage.setItem('user', JSON.stringify(this.user)); // Salva o usuário no localStorage
             } catch (error) {
                 throw error;
             }
         },
-        async updatePassword(oldpassword, newpassword) {
+        async updatePassword(oldpassword, newpassword) { // Função para atualizar a senha
             try {
-                const user = await fetch(`${BASE_URL}auth/updatepassword`, {
+                const user = await fetch(`${BASE_URL}auth/updatepassword`, { // Faz uma requisição na API para atualizar a senha
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                         "authorization": this.token,
                     },
-                    body: JSON.stringify({ oldpassword, newpassword }),
+                    body: JSON.stringify({ oldpassword, newpassword }), // Passa as senhas
                 });
                 if (!user.ok) {
                     throw (await user.json()).message
@@ -79,7 +81,7 @@ export default defineStore('user', {
         },
         async updateImage(image) {
             try {
-                const response = await fetch(`${BASE_URL}user/${this.user._id}/edit`, {
+                const response = await fetch(`${BASE_URL}user/${this.user._id}/edit`, { // Faz uma requisição na API para atualizar a imagem (Colocar dinâmica a alteracao da imagem no front-end)
                     method: 'POST',
                     headers: {
                         "authorization": this.token,
@@ -90,12 +92,12 @@ export default defineStore('user', {
                     }),
                 })
                 if (!response.ok) {
-                    return { error: (await response.json()).message }
+                    return { error: (await response.json()).message } // Se der erro, retorna a mensagem vinda da API
                 }
                 this.user.image_url = image
-                return { success: true }
+                return { success: true } // Se der certo, retorna um objeto com a chave 'success' como true
             } catch (error) {
-                return { error: (await response.json()).message }
+                return { error: (await response.json()).message } // Se der erro, retorna a mensagem vinda da API
             }
         }
     },

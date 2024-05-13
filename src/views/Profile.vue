@@ -117,10 +117,10 @@ const userData = ref()
 if (!token || !user) {
   router.push('/login')
 }
-const imgUrl = ref(user.value.image_url || '/images/img_avatar.png')
+const imgUrl = ref(user.value?.image_url || '/images/img_avatar.png')
 
 watch(()=> user, () => {
-  imgUrl.value = user.value.image_url || '/images/img_avatar.png';
+  imgUrl.value = user.value?.image_url || '/images/img_avatar.png';
 }, { deep: true });
 
 const formdata = ref({

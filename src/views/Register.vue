@@ -1,5 +1,4 @@
 <script setup>
-  import Socials from '@/components/Socials.vue';
   import Field from '@/components/Auth/Fields.vue';
   import IPerson from '@/components/icons/IPerson.vue';
   import IMail from '@/components/icons/IMail.vue';
@@ -12,32 +11,31 @@
   const username = ref('');
   const password = ref('');
   const router = useRouter();
-  const error = ref('');
+  const error = ref([]);
   
   async function register() {
     const userSt = userStore();
-    error.value = ''; 
+    error.value = []; 
   
     if (!email.value || !username.value || !password.value) {
-      error.value = "Por favor, preencha todos os campos.";
-      return; 
+      return error.value.push("Por favor, preencha todos os campos.");
     }
-    // como esta no lado do servidor
     // verifica se o email esta bem formatado
     if (!validateEmail(email.value)) {
-      error.value = "Por favor, insira um email válido.";
-      return;
+      error.value.push("Por favor, insira um email válido.");
     }
   
     // verifica se o username é válido (letras, números, '-', '_', '.')
     if (!/^[a-zA-Z][a-zA-Z\d-_\.]+$/.test(username.value)) {
-      error.value = "Nome de usuário inválido. Use apenas letras, números, '-', '_', ou '.' e comece com uma letra.";
-      return;
+      error.value.push("Nome de usuário inválido. Use apenas letras, números, '-', '_', ou '.' e comece com uma letra.");
     }
   
     // Verifica se a senha é válida (letras, números, caracteres especiais)
     if (!isValidPassword(password.value)) {
-      error.value = "Senha inválida. Deve conter pelo menos 8 caracteres, incluindo letras, números e caracteres especiais.";
+      error.value.push("Senha inválida. Deve conter pelo menos 8 caracteres, incluindo letras, números e caracteres especiais.");
+    }
+
+    if (error.value.length > 0) {
       return;
     }
   
@@ -45,9 +43,9 @@
       .then(() => {
         router.push('/');
       })
-      .catch((error) => {
-        console.error(error);
-        error.value = "Erro ao registrar. Por favor, tente novamente.";
+      .catch((err) => {
+        console.error(err);
+        return error.value.push(err);
       });
   }
   
@@ -69,10 +67,7 @@
         <!--  Register  -->
         <div class="w-full lg:w-7/12 mx-auto bg-white flex flex-col items-center">
           <h1 class="text-gray-900 text-3xl font-poppins font-bold mt-10 lg:mt-20 text-center lg:text-left">Preencha os seus dados</h1>
-          <div class="my-11">
-            <Socials color-symbols="#000000"/>
-          </div>
-          <form @submit.prevent="register" class="flex flex-col items-center h-full">
+          <form @submit.prevent="register" class="flex flex-col items-center h-full mt-24">
             <div class="w-full lg:w-[120%]"> 
               <Field placeholder='Nome de utilizador' autocomplete="username" class="w-full" v-model="username">
                 <template #icon>
@@ -106,16 +101,16 @@
             </div>
           </form>
         </div>
-        <div v-if="error" class="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50">
+        <div v-if="error.length > 0" class="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50">
           <div class="bg-white p-6 rounded-lg shadow-md">
-            <p class="text-gray-900">{{ error }}</p>
-            <button @click="error = null" class="mt-4 px-4 py-2 bg-gray-900 text-white rounded-md mx-auto block">Fechar</button>
+            <p class="text-gray-900" v-for="(text, i) in error" :key="i">{{ text }}</p>
+            <button @click="error = []" class="mt-4 px-4 py-2 bg-gray-900 text-white rounded-md mx-auto block">Fechar</button>
           </div>
         </div>
         <!--  Login  -->
         <div class="hidden lg:flex w-5/12 bg-gray-900 text-white flex-col items-center">
           <div class="ml-auto mt-11 mr-14">
-            <span>SKILLSWAPP Logo</span>
+            <span><img src="/images/skillswap.png" alt="SkillSwapp Logo" class="h-14"></span>
           </div>
           <div class="ml-auto mt-44 mr-14 border-r-8 border-pink-600 pr-3 w-32">
             <h1 class="text-2xl font-bold text-end">Crie já a sua conta</h1>

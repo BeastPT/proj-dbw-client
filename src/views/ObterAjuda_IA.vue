@@ -65,7 +65,6 @@ async function sendMessage() {
       }
     })
     const data = (await response.json()).message;
-    console.log(data)
 
     await fetch(`${BASE_URL}chat/${data._id}/addMessage`, {
       method: 'POST',

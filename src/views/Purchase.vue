@@ -44,9 +44,8 @@ try {
 
   const output = (await response.json()).message;
   users.value = output.map((e) => {
-    console.log(e)
     return {
-      Title: e.subject || 'Unknown', //falta
+      Title: e.subject || 'Unknown',
 
 
       Id: e._id,

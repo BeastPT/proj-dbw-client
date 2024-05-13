@@ -37,6 +37,7 @@ export default defineStore('user', {
             localStorage.removeItem('user');
         },
         async register(email, username, password) {
+            console.log(email, username, password)
             try {
                 const user = await fetch(`${BASE_URL}auth/register`, {
                     method: "POST",

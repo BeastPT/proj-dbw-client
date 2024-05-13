@@ -1,5 +1,4 @@
 <script setup>
-import Socials from '@/components/Socials.vue'
 import Field from '@/components/Auth/Fields.vue'
 import IPerson from '@/components/icons/IPerson.vue'
 import { ref } from 'vue';
@@ -19,7 +18,7 @@ async function login() {
     router.push('/');
   } catch (err) {
     console.error(err);
-    error.value = "Email ou senha incorretos. Por favor, tente novamente.";
+    error.value = err;
   }
 }
 </script>
@@ -31,7 +30,7 @@ async function login() {
       <!--  Register  -->
       <div class="hidden lg:flex w-5/12 bg-gray-900 text-white flex-col items-center">
         <div class="mt-11 ml-[-12rem]">
-          <span>SKILLSWAPP Logo</span>
+          <span><img src="/images/skillswap.png" alt="SkillSwapp Logo" class="h-14"></span>
         </div>
   
         <div class="mr-auto mt-44 ml-14 border-l-8 border-amber-300 pl-3 w-36">
@@ -50,21 +49,11 @@ async function login() {
           </RouterLink>
         </div>
       </div>
-      
-      <!--  Middle Icon  -->
-      <!-- <div class="hidden lg:flex absolute top-1/2 left-[42rem] transform -translate-x-1/2 -translate-y-1/2">
-      <button>
-          <img class="rounded-full" src="https://via.placeholder.com/80" alt="SkillsWapp Logo" />
-      </button>
-      </div> -->
-      
+            
       <!--  Login  -->
       <div class="w-full lg:w-[65%] bg-white flex flex-col items-center">
         <h1 class="text-gray-900 text-3xl font-poppins font-bold mt-20 sm:text-5xl text-center mx-auto">Entre com a sua conta</h1>
-        <div class="my-11">
-          <Socials :color-symbols="'#000000'"/>
-        </div>
-        <form @submit.prevent="login" class="flex flex-col items-center h-full">
+        <form @submit.prevent="login" class="flex flex-col items-center h-full mt-36">
           <Field class="w-full lg:w-[120%]" placeholder="Nome de utilizador" autocomplete="username" v-model="username">
             <template #icon>
               <IPerson/>
@@ -77,17 +66,6 @@ async function login() {
           </Field>
           
           <div class="flex mb-6 h-5 justify-between w-full lg:mb-28">
-            <!--
-            <div class="flex items-start">
-              <div class="flex items-center">
-                <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded-full bg-gray-50 focus:ring-2 focus:ring-amber-300 text-amber-300" required />
-              </div>
-              <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Lembrar</label>
-            </div>
-            -->
-            <div class="text-sm">
-              <span>Esqueceu a sua senha?</span>
-            </div>
           </div>
           <input type="submit" value="Entrar" class="text-white text-2xl font-semibold font-poppins bg-gray-900 rounded-full w-56 h-16 mb-4">
           

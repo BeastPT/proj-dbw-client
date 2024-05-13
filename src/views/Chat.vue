@@ -52,7 +52,7 @@
                           d="M4 6h16M4 12h16m-7 6h7"></path>
                       </svg>
                     </button>
-                    <p v-if="isChatLoaded" class="ml-2"><strong>IA Chat -</strong> {{chatsubject}}</p>
+                    <p v-if="isChatLoaded" class="ml-2"><strong>IA Chat -</strong> {{ chatsubject }}</p>
                     <p v-else class="ml-2 font-bold">Selecione um Chat</p>
                   </div>
                   <div v-if="isChatLoaded" class="flex flex-col h-full overflow-x-auto mb-4" ref="messageContainer">
@@ -185,9 +185,9 @@ async function loadChats() { // Obtem a lista de chats do usuário
   }
 }
 
-async function sendMessage(){ // Função para enviar uma mensagem
+async function sendMessage() { // Função para enviar uma mensagem
   if (!msg.value) return; // Se a mensagem estiver vazia, não envia
-  const message = { 
+  const message = {
     text: msg.value,
     isUser: true
   }

@@ -37,7 +37,7 @@
 import { ref } from 'vue';
 import userStore from '@/store/user.js';
 
-const userSt = userStore();
+const userSt = userStore(); // Importa a store do usuário
 const errorMessage = ref('');
 
 const isOpen = ref(false);
@@ -47,11 +47,11 @@ const closeModal = () => {
   isOpen.value = false;
 };
 
-const handleImageLink = async () => {
+const handleImageLink = async () => { // Função para alterar a imagem
   if (imageUrl.value.trim() !== '') {
-    const data = await userSt.updateImage(imageUrl.value);
+    const data = await userSt.updateImage(imageUrl.value); // Faz um pedido para o servidor para atualizar a imagem
     if (data.error) {
-      return errorMessage.value = data.error
+      return errorMessage.value = data.error || 'Erro ao atualizar a imagem'; // Se der erro, mostra a mensagem de erro
     } else {
       isOpen.value = false;
     }

@@ -87,14 +87,14 @@ import { storeToRefs } from 'pinia';
 import userStore from '@/store/user.js';
 import { useRouter } from 'vue-router';
 
-const userSt = userStore();
-const router = useRouter();
+const userSt = userStore(); // Importa a store do usuário
+const router = useRouter(); // Importa o router
 
-const { token: loggedIn, user } = storeToRefs(userSt);
+const { token: loggedIn, user } = storeToRefs(userSt); // Importa o token e o usuário da store
 const imgUrl = ref(user.value?.image_url || '/images/img_avatar.png');
 const showMenu = ref(false);
 
-watch(() => user, () => {
+watch(() => user, () => { // Atualiza a imagem caso o utilizador o modifique
   imgUrl.value = user.value?.image_url || '/images/img_avatar.png';
 }, { deep: true });
 

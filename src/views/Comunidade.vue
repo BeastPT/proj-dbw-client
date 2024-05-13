@@ -8,6 +8,7 @@
         <div class="flex flex-col md:flex-row md:justify-between mb-8">
             <!-- Evento 1 -->
             <div class="event-card mb-8">
+                <!-- Conteúdo do cartão do evento -->
                 <div class="p-12">
                     <h2 class="text-xl font-semibold mb-4">Sessão de Networking</h2>
                     <p>
@@ -16,11 +17,13 @@
                         <br><strong>·</strong> 10 de agosto às 09:30
                         <br><strong>·</strong> 12 de agosto às 16:30
                     </p>
+                    <!-- Imagem do evento -->
                     <div class="mt-8 p-4 md:pt-0 flex justify-center items-center">
                         <div class="event-image">
                             <img src="/images/comunidade1.jpeg" class="w-full h-full">
                         </div>
                     </div>
+                    <!-- Botão para o evento -->
                     <div class="pt-8">
                         <button class="w-full h-10 bg-gray-800 rounded-full text-white text-sm">Brevemente</button>
                     </div>
@@ -29,6 +32,7 @@
 
             <!-- Evento 2 -->
             <div class="event-card mb-8">
+                <!-- Conteúdo do cartão do evento -->
                 <div class="p-12">
                     <h2 class="text-xl font-semibold mb-4">Workshop de Habilidades</h2>
                     <p>
@@ -37,12 +41,13 @@
                         <br><strong>·</strong> 15 de setembro às 10:00
                         <br><strong>·</strong> 16 de setembro às 17:00
                     </p>
-
+                    <!-- Imagem do evento -->
                     <div class="mt-8 p-4 md:pt-0 flex justify-center items-center">
                         <div class="event-image">
                             <img src="/images/comunidade2.jpeg" class="w-full h-full">
                         </div>
                     </div>
+                    <!-- Botão para o evento -->
                     <div class="pt-8">
                         <button class="w-full h-10 bg-gray-800 rounded-full text-white text-sm">Brevemente</button>
                     </div>
@@ -50,18 +55,20 @@
             </div>
         </div>
 
+        <!-- Seção de informações sobre a Comunidade -->
         <div class="text-center mt-8">
             <h1 class="text-3xl font-bold">Futuro Freelancing</h1>
         </div>
 
         <div class='flex items-center justify-center mt-8 mb-80 '>
             <ul class=" grid  md:w-full grid-cols-3 gap-x-5 px-8 sm:px-2">
+                <!-- Sobre a Comunidade -->
                 <li class="">
                     <input class="peer sr-only" type="radio" value="yes" name="answer" id="yes" checked />
                     <label
                         class="flex justify-center cursor-pointer rounded-full border border-gray-300 bg-white py-2 px-9 hover:bg-gray-50 focus:outline-none peer-checked:border-transparent peer-checked:ring-2 peer-checked:ring-blue-600 transition-all duration-500 ease-in-out"
                         for="yes">Sobre</label>
-
+                    <!-- Descrição da Comunidade -->
                     <div
                         class="absolute bg-white shadow-2xl p-6 border rounded-lg max-h-72 mx-8 my-5 sm:mx-auto sm:mt-8 left-0 sm:left-auto md:left-48 md:right-48 transition-all duration-500 ease-in-out opacity-0 invisible peer-checked:opacity-100 peer-checked:visible peer-checked:translate-x-1 overflow-auto">
                         Nosso site revolucionário oferece uma plataforma única onde freelancers são, na verdade,
@@ -79,7 +86,7 @@
                     <label
                         class="flex justify-center cursor-pointer rounded-full border border-gray-300 bg-white py-2 px-9 hover:bg-gray-50 focus:outline-none peer-checked:border-transparent peer-checked:ring-2 peer-checked:ring-blue-600 transition-all duration-500 ease-in-out"
                         for="no">Objetivos</label>
-
+                    <!-- Objetivos da Comunidade -->
                     <div
                         class="absolute bg-white shadow-2xl p-6 border rounded-lg max-h-72 mx-8 my-5 sm:mx-auto sm:mt-8 left-0 sm:left-auto md:left-48 md:right-48 transition-all duration-500 ease-in-out opacity-0 invisible peer-checked:opacity-100 peer-checked:visible peer-checked:translate-x-1 overflow-auto">
                         Nosso principal objetivo é transformar o mercado de freelancers, oferecendo uma alternativa
@@ -100,7 +107,7 @@
                     <label
                         class="flex justify-center cursor-pointer rounded-full border border-gray-300 bg-white py-2 px-9 hover:bg-gray-50 focus:outline-none peer-checked:border-transparent peer-checked:ring-2 peer-checked:ring-blue-600 transition-all duration-500 ease-in-out "
                         for="yesno">Futuro</label>
-
+                    <!-- Futuro da Comunidade -->
                     <div
                         class="absolute bg-white shadow-2xl p-6 border rounded-lg max-h-72 mx-8 my-5 sm:mx-auto sm:mt-8 left-0 sm:left-auto md:left-48 md:right-48 transition-all duration-500 ease-in-out opacity-0 invisible peer-checked:opacity-100 peer-checked:visible peer-checked:translate-x-1 overflow-auto">
                         Em um mundo cada vez mais digital, a necessidade de soluções rápidas e confiáveis é maior do que
@@ -130,7 +137,6 @@ export default {
 .event-card {
     width: 100%;
     min-height: 350px;
-    /* Garante que todos os cartões tenham a mesma altura */
     background-color: #89B8CF;
     border-radius: 15px;
     position: relative;
@@ -138,9 +144,7 @@ export default {
 
 .event-image {
     max-width: 300px;
-    /* Defina o tamanho da largura que deseja para a imagem */
     height: 200px;
-    /* Defina o tamanho da altura que deseja para a imagem */
     border-radius: 5px;
     border: 3px solid #1B1D2D;
     overflow: hidden;
@@ -151,7 +155,6 @@ export default {
 @media (min-width: 768px) {
     .event-card {
         width: 48%;
-        /* 2 cartões por linha em telas grandes */
     }
 }
 

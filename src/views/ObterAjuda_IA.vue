@@ -5,10 +5,12 @@
     <h2 class="text-xl md:text-2xl font-semibold mb-2 mt-8">Fale com a nossa assistente virtual</h2>
 
     <div class="shadow-md rounded-bl-lg rounded-lg ">
+      <!-- Campo de entrada de mensagem -->
       <div class="bg-gray-300 p-4 flex flex-col md:flex-row md:items-center rounded-lg">
         <input class="flex-grow h-10 rounded px-3 text-sm mb-2 md:mb-0 md:mr-2" type="text"
           placeholder="Escreva a sua mensagem..." v-model="message" @keyup.enter="sendMessage">
-        <button @click="sendMessage"
+          <!-- Botão de enviar mensagem -->
+          <button @click="sendMessage"
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Enviar</button>
       </div>
     </div>
@@ -16,6 +18,7 @@
     <h2 class="text-xl md:text-2xl font-semibold mb-2 mt-8">Contacta-nos</h2>
     <div class="border-b-4 bg-gray-200 rounded-2xl mb-8"></div>
 
+    <!-- Informações de contacto -->
     <div class="flex flex-wrap justify-center">
       <div class="inf mx-auto md:mr-4 lg:mr-0 mb-4 md:mb-0">
         <p class="text-white">E-mail</p>

@@ -1,5 +1,6 @@
 <template>
     <div class="mx-4 sm:mx-auto md:mx-48 mt-6 sm:mt-10 font-sans">
+        <!-- Secção: Onde aceder ao Livro de Reclamações Online -->
         <div class="mt-8">
             <h2 class="text-lg sm:text-xl font-semibold">ONDE POSSO ACEDER AO LIVRO DE RECLAMAÇÕES ONLINE?</h2>
             <p class="mt-4">Pode aceder ao <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank"
@@ -7,9 +8,11 @@
                 Este é um processo diferente do que contactar diretamente os Serviços ao Consumidor da SkillSwapp.</p>
         </div>
 
+        <!-- Secção: Perguntas Frequentes -->
         <div class="mt-8">
             <h2 class="text-lg sm:text-xl">PERGUNTAS FREQUENTES</h2>
 
+            <!-- Pergunta/Resposta 1 -->
             <div class="mt-4">
                 <h2 class="text-lg sm:text-xl font-semibold">Quando devo utilizar o Livro de Reclamações online?</h2>
                 <p class="mt-4">Se tiver uma reclamação relacionada à sua experiência na SkillSwapp ou com os nossos
@@ -21,6 +24,7 @@
                     que suas preocupações sejam atendidas da melhor forma possível.</p>
             </div>
 
+            <!-- Pergunta/Resposta 2 -->
             <div class="mt-8 mb-8">
                 <h2 class="text-lg sm:text-xl font-semibold">Quando receberei uma resposta se utilizar o Livro de
                     Reclamações online?</h2>

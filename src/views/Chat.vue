@@ -2,10 +2,12 @@
   <div v-if="chatsNotFound">
     <div class="flex flex-col h-full justify-center items-center">
       <div class="flex flex-col justify-center items-center p-48">
+        <!-- Mensagem de aviso -->
         <div class="text-center mb-4">
           <h1 class="text-4xl font-bold mb-2">Nenhum Chat Encontrado</h1>
           <p class="text-lg text-gray-600">Desculpe, você não tem nenhum chat!.</p>
         </div>
+        <!-- Link para a página inicial -->
         <router-link to="/" class="text-blue-500 underline">Voltar à Página Inicial</router-link>
       </div>
     </div>
@@ -17,7 +19,7 @@
       <div
         class="absolute rounded-xl h-5/6 p-2 inset-y-0 left-0 z-10 bg-gray-900 w-3/5 md:w-2/12 sm:w-auto overflow-y-auto transition-transform duration-300 transform"
         :class="{ '-translate-x-full sm:translate-x-0': !showMenu, 'translate-x-0': showMenu }">
-        <!-- Conteúdo do menu -->
+        <!-- Botão para mostrar/esconder menu em dispositivos móveis -->
         <button v-if="windowWidth <= 640" @click="toggleChatMenu"
           class="block sm:hidden p-3 text-lg text-white cursor-pointer">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -26,18 +28,19 @@
         </button>
         <p class=" text-white text-center text-lg"><strong>IA Chats</strong></p>
 
-
+        <!-- Lista de opções de chat -->
         <div class="overflow-y-auto h-5/6">
           <div>
+            <!-- Link para cada chat disponível -->
             <RouterLink v-for="(item, index) in chatOptions" :key="index" :to="item.route"
               class="hover:cursor-pointer mt-2 bg-gray-900 text-white">
               <ChatLink :label="item.label" />
             </RouterLink>
           </div>
         </div>
-
       </div>
 
+      <!-- Área de exibição de mensagens -->
       <div class="flex-1 relative z-0">
         <div class="bg-gray-900  h-full">
           <div class="flex h-screen antialiased text-gray-800 justify-end">
@@ -45,6 +48,7 @@
               <div class=" flex-col flex-auto h-full mx-6">
                 <div class="flex flex-col  flex-shrink-0 rounded-2xl bg-gray-100 h-5/6 p-4 relative z-0">
                   <div class="h-14 mb-4 p-4 text-white bg-gray-900 rounded-2xl text-l flex justify-center items-center">
+                     <!-- Botão para mostrar/esconder menu em dispositivos móveis -->
                     <button @click="toggleChatMenu" class="block sm:hidden p-3 text-lg text-white cursor-pointer">
                       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
@@ -52,6 +56,7 @@
                           d="M4 6h16M4 12h16m-7 6h7"></path>
                       </svg>
                     </button>
+                    <!-- Título do chat ou mensagem de seleção -->
                     <p v-if="isChatLoaded" class="ml-2"><strong>IA Chat -</strong> {{ chatsubject }}</p>
                     <p v-else class="ml-2 font-bold">Selecione um Chat</p>
                   </div>
@@ -59,12 +64,14 @@
                     <div class="flex flex-col h-full">
                       <div class="grid grid-cols-12 gap-y-2">
 
+                        <!-- Exibe as mensagens do chat -->
                         <ChatMessage v-for="(message, index) in messages" :key="index" :isUser="message.isUser"
                           :message="message.text" />
 
                       </div>
                     </div>
                   </div>
+                  <!-- Entrada de texto para enviar mensagens -->
                   <div v-if="isChatLoaded" class="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4">
                     <div class="flex-grow ml-2">
                       <div class="relative w-full">
@@ -74,9 +81,9 @@
                       </div>
                     </div>
                     <div class="ml-4">
-                      <button @click="sendMessage"
+                      <!-- Botão para enviar mensagem -->
+                      <button @click="sendMessage" 
                         class="flex items-center justify-center bg-gray-900 hover:bg-gray-500 rounded-xl text-white px-4 py-1 flex-shrink-0">
-
                         <svg class="w-4 h-4 transform rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -85,6 +92,7 @@
                       </button>
                     </div>
                   </div>
+                  <!-- Mensagem de erro quando chat não é encontrado -->
                   <div v-if="!isChatLoaded && chatNotFound">
                     <div class="flex flex-col h-full justify-center items-center">
                       <p class="text-lg font-bold">Chat não encontrado</p>

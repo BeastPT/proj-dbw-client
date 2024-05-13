@@ -10,6 +10,7 @@
             oferecendo oportunidades de networking e suporte mútuo. A diversidade de projetos não apenas mantém o
             trabalho interessante, mas também estimula a constante aprendizagem e crescimento profissional. </p>
 
+        <!-- Grade de imagens -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 md:mb-10">
             <img src="/images/vida1.jpg">
             <img src="/images/vida2.jpg">
@@ -25,6 +26,7 @@
             dinâmico. Em resumo, o estilo de vida freelancer combina liberdade, diversidade e comunidade, destacando-se
             como uma opção única no mundo profissional. </p>
 
+        <!-- Segunda grade de imagens -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 md:mb-10">
             <img src="/images/vida9.jpg">
             <img src="/images/vida12.jpg">

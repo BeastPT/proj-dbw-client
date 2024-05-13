@@ -8,7 +8,7 @@
 
     <div class="max-w-7xl mx-auto py-16 px-8">
       <div class="flex flex-col md:flex-row gap-12">
-        <!-- Basic Card -->
+        <!-- Informções -->
         <div class="flex-1 p-8 bg-white text-center rounded-3xl shadow-xl">
           <h1 class="text-black font-semibold text-2xl">Informações</h1>
           <hr class="mt-4 border-1">
